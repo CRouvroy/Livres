@@ -1,48 +1,89 @@
 #import "theme.typ": *
+#import "@preview/lovelace:0.3.0": *
 #import "tablex.typ" : *
 #document(title: "Avant la MP2I - Informatique (2025)")[
+#align(center + horizon)[
+  #block(
+    width: 90%,
+    radius: 16pt,
+    clip: true,
+    stroke: 0.5pt + luma(200),
+    fill: luma(255)
+  )[
+    #block(
+      width: 100%,
+      height: 180pt,
+    )[
+      #image("banner2.jpg", width: 100%, height: 100%, fit: "cover")
+    ]
+    
+    #block(
+      width: 100%,
+      inset: (top: 2.5em, bottom: 4em)
+    )[
+      #text(size: 3.5em, weight: "bold", font: "Playfair Display")[AVANT LA MP2I] \
+      #v(0.2em)
+      #text(size: 2.2em, style: "italic", weight: "medium", fill: luma(80), font: "Playfair Display")[Informatique]
+      
+      #v(2em)
+      #image("wavy.svg", width: 40%)
+      #v(2em)
+      
+      #text(1.8em, weight: "medium", font: "Playfair Display")[Clément Rouvroy] \
+      #v(0.5em)
+      #text(1.2em, fill: luma(120))[v. 2026]
+    ]
+  ]
+]
 
-#imp[Licence]  Avant La MP2I is licensed under CC BY-NC-SA 4.0 
-  
-#imp[Document encore en écriture !] Rejoignez le discord (https://discord.gg/wrAx8B96Jy)pour signaler les fautes d'orthographe (elles doivent être nombreuses), les fautes dans les exercices, etc. Si vous n'avez pas discord, un formulaire est disponible sur le site de ce document.
-  
-#imp[Objectifs] Ce document a été rédigé par un élève de classe MPI (désormais à Ulm) et non un professeur, il ne contient pas un "must-have" avant de rentrer en prépa. Il est en fait une compilation de points de cours et d'exercices classiques que j'aurais voulu avoir vu avant de rentrer en classe préparatoire. Le meilleur moyen d'utiliser ce document est de lire un chapitre par jour, de bien comprendre les points de cours et les notions présentées et ensuite d'attaquer les exercices. Si vous ne trouvez pas la solution à certains exercices, pas de panique : c'est normal. C'est la principale différence avec la terminale, le but n'est pas de trouver mais de chercher. En cherchant un exercice vous mobilisez des connaissances (tiens ça ressemble à tel théorème / telle propriété, oh et si j'essayais de faire ça ...) et peut-être que ça ne suffira pas pour résoudre l'exercice, mais vous aurez appris bien plus qu'en ayant trivialisé #ita[ (vous entendrez souvent ce mot)] un exercice d'application simple.
+#pagebreak()
+
+#outline(title: "Liste des chapitres")
+
+#v(2em)
 
 
-#imp[Sources] La plupart des exercices présentés sont des exercices auxquels j'ai pensé en écrivant le cours ou que l'on m'a envoyé (je remercie Wyrdix pour certains exercices dans la partie `Exercices sans thèmes précis`). Certains peuvent aussi venir de mon parcours en classe préparatoire, je n'ai pas forcément leur source précise mais les exercices viendront souvent de :
+#pagebreak()
+#block(
+  width: 100%,
+  fill: blue.lighten(97%),
+  radius: 4pt,
+  stroke: 1pt + blue.lighten(65%),
+  inset: (top: 0.9em, bottom: 0.9em, x: 1em),
+)[
+  #text(fill: blue.darken(40%), weight: "bold", font: "Playfair Display")[Note 2026]
 
+  Les outils d'IA sont devenus incontournables dans votre apprentissage. Je suis sûr que vous les utilisez tous, et pas forcément en mal. En revanche, faites attention à un schéma que j'ai vu apparaître dans quelques expériences de suivi d'élèves en MP2I/MPI : de très bons élèves se servent de l'IA en se disant "je sais le faire, c'est pour aller plus vite". C'est effectivement pratique : flemme d'écrire un tri, flemme d'écrire une boucle sur chacune des lettres du fichier, flemme de me rappeler comment on écrit un thread en C, flemme de retrouver la preuve précise qu'un tri est en $O(n log n)$, la commande exacte de compilation OCaml/C, etc.
+
+  Cette glissade est tout à fait normale au vu des outils, et c'est une évolution naturelle. *Mais* je pense que vous devriez vraiment ne pas le faire en prépa. En Bac+1/+2, vous êtes encore en train d'apprendre plein de syntaxes que vous ne connaissez pas, ainsi que des listes de fonctions et de commandes utiles. Certes, dans votre futur travail, si ce travail existe encore sous cette forme, vous n'aurez probablement pas à écrire tout le code vous-même (et je pense, de code tout court). Pour autant, votre valeur sera de savoir le débuguer, l'évaluer et donner la décomposition d'un problème en sous-problèmes, ainsi que de garder la vision globale du projet sur plusieurs mois.
+
+  Ces tâches ne s'entraînent que par l'expérience du code, et pas seulement par des petites gymnastiques à la LeetCode. Le meilleur moyen de devenir fort en débugage est de coder dans sa tête, puis sur papier, puis sur ordinateur, sans demander à un oracle comment écrire chaque ligne.
+
+  Libre à vous de l'entendre ou non, mais si vous vous posez la question "dois-je utiliser une IA en prépa ?", je vous répondrai : je déconseille impérativement de vous en servir pour autre chose que vérifier votre travail après coup, et encore, sous la condition que vous écriviez vous-même les corrections du fichier et que vous les compreniez.
+]
+
+
+#pagebreak()
+
+#imp[Lien vers le polycopié :] #link("https://www.normalesup.org/~rouvroy/post/avantlamp2i.html")[https://www.normalesup.org/~rouvroy/post/avantlamp2i.html]
+
+#v(1em)
+
+#imp[Objectifs] Ce document a été rédigé par un ancien élève de classe MPI (Faidherbe HX1 228, puis Ulm 2023)et non un professeur, il ne contient pas un "must-have" avant de rentrer en prépa. Il est en fait une compilation de points de cours et d'exercices classiques que j'aurais voulu avoir vus avant de rentrer en classe préparatoire / que j'étais heureux d'avoir vus avant de commencer. Le meilleur moyen d'utiliser ce document est de lire un chapitre par jour, de bien comprendre les points de cours et les notions présentées et ensuite d'attaquer les exercices. Si vous ne trouvez pas la solution à certains exercices, pas de panique : c'est normal. C'est la principale différence avec la terminale, le but n'est pas de trouver mais de chercher. En cherchant un exercice vous mobilisez des connaissances (tiens ça ressemble à tel théorème / telle propriété, oh et si j'essayais de faire ça ...) et peut-être que ça ne suffira pas pour résoudre l'exercice, mais vous aurez appris bien plus qu'en ayant trivialisé #ita[ (vous entendrez souvent ce mot)] un exercice d'application simple.
+
+#v(1em)
+
+#imp[Sources] La plupart des exercices présentés sont des exercices auxquels j'ai pensé en écrivant le cours ou que l'on m'a envoyés. Certains peuvent aussi venir de mon parcours en classe préparatoire, je n'ai pas forcément leur source précise mais les exercices viendront souvent de :
 - Algorithms (J. Erickson)
 - Leetcode (site de programmation compétitive)
 
+#v(1em)
+
+#imp[Code source et contributions :] #link("https://github.com/CRouvroy/Livres")[github.com/CRouvroy/Livres]
 
 
-#imp[Les différents thèmes abordés] Ce document est volontairement léger en cours pour ne pas vous noyer pendant les vacances, il faut principalement vous reposer. Cependant, quelques exercices ne peuvent pas faire de mal et quelques définitions non plus (juste pour s'habituer aux notations de prépa). Voici la liste des points abordés dans l'ordre:
-+ Qu'est-ce qu'un algorithme
-+ Récursivité
-+ Tableaux ou listes ?
-+ Représentation des réels
-+ Raisonner inductivement
-+ Retour sur trace
-+ Introduction aux graphes
-+ Travailler avec des mots
-+ Comment débuguer
-+ Exercices sans thème précis
-+ Corrections de certains exercices
-
-#imp[Gardez ce polycopié à jour] en téléchargeant régulièrement la dernière version sur le site https://avantlampii.cr-dev.io/ ou directement depuis le github (https://github.com/crdevio/Livres)
-
-#imp[Contribuez] vous pouvez utiliser le repo GitHub pour proposer vos Pull Requests (exercices, corrections, typos, etc).
-
-#imp[Nouveautés de la version 2024]
-- Ajouter de certaines corrections 
-- Ajout d'exercices
-- Plus de margin-notes pour centrer le texte
-- Ajout du cours sur le retour sur trace
-- Changements mineurs de style
-
-#imp[Nouveautés de la version 2025]
-- Modification du code du document (et surtout de sa template) pour le rendre compatible avec les nouvelles verions de Typst
-- Corrections de quelques fautes de grammaire / d'orthographe
+#pagebreak(weak: true)
+#cpt_part.update(0)
 
 = Qu'est-ce qu'un algorithme ?
 == Définition
@@ -50,7 +91,7 @@ Vous avez sans doute souvent entendu parler d'algorithme, que ce soit en NSI ou 
 
 #def(title: "Algorithme")[Un algorithme est une suite d'instructions précises réalisant une tâche.]
 
-#rem[] Instruction "précise" signifie qu'on ne doit pas douter, elle doit être claire ! Un ordinateur exécute le code de manière séquentielle #ita[en général], il ne doit pas y avoir d'ambiguïté sur la tâche à exécuter.
+#rem[Instruction "précise" signifie qu'on ne doit pas douter, elle doit être claire ! Un ordinateur exécute le code de manière séquentielle #ita[en général], il ne doit pas y avoir d'ambiguïté sur la tâche à exécuter.]
 
 Cette définition peut surprendre si on ne l'a jamais vue : pas de notion de programmation et pas de notion d'ordinateur (trier votre main au Uno est un algorithme selon cette définition). C'est tout à fait normal puisqu'à l'époque où ce mot a été prononcé pour la première fois (IXème siècle) il n'y avait pas d'ordinateur pour implémenter les algorithmes, cependant on possède désormais cette définition :
 #def(title :"Implémentation d'un algorithme")[On appelle implémentation d'un algorithme son écriture dans un langage de programmation.]
@@ -63,25 +104,30 @@ Pour le premier exemple d'algorithme, on va considérer le plus classique (que v
 
 Pour deux nombres `a` $>=$ `b`, si `b` est nul on renvoie `a` sinon on rappelle l'algorithme avec `a % b` et `b`.
 
-La preuve mathématiques est sans intérêt ici (vous la ferez sûrement en début de première année) donc on va admettre que l'algorithme fonctionne. Je pense que vous avez pu le remarquer : cette notation pour l'algorithme n'est pas très pratique, si vous ne voyez pas où est le problème, voici une version plus propre (plus proche d'une suite d'instructions) de cet algorithme :
+La preuve mathématique est sans intérêt ici (vous la ferez sûrement en début de première année) donc on va admettre que l'algorithme fonctionne. Je pense que vous avez pu le remarquer : cette notation pour l'algorithme n'est pas très pratique, si vous ne voyez pas où est le problème, voici une version plus propre (plus proche d'une suite d'instructions) de cet algorithme :
 
-```
-PGCD:
-    Entrée : a >= b
-    Si b>a alors renvoyer PGCD(b,a)
-    Sinon Si b=0 renvoyer a
-    Sinon renvoyer pgcd(a % b, b)
-```
-#rem[] Cet algorithme s'appelle lui-même, si vous l'avez déjà vu en NSI vous pouvez continuer à lire cette section, sinon je vous conseille de passer à l'introduction à la récursivité.
+#pseudocode-list(title: [PGCD])[
+  + *input:* $a >= b$
+  + *if* $b > a$ *then*
+    + renvoyer $op("PGCD")(b, a)$
+  + *else if* $b = 0$ *then*
+    + renvoyer $a$
+  + *else*
+    + renvoyer $op("PGCD")(a mod b, b)$
+  + *end*
+]
+#rem[Cet algorithme s'appelle lui-même, si vous l'avez déjà vu en NSI vous pouvez continuer à lire cette section, sinon je vous conseille de passer à l'introduction à la récursivité.]
 
 Maintenant que vous avez vu les deux versions, je suppose que si je vous demandais de me coder en python l'algorithme du PGCD, vous préféreriez avoir la deuxième version plutôt que la première comme indication : elle est plus claire. Cette définition est *informatiquement correcte mais elle n'a aucun lien avec votre ordinateur*, en fait je peux écrire le même genre de programme pour mon réveil et ça restera de l'informatique :
 
-```
-Reveil:
-    Entrée : cours1
-    Si cours1 != SI alors se_lever()
-    Sinon dormir()
-```
+#pseudocode-list(title: [Réveil])[
+  + *input:* `cours1`
+  + *if* `cours1` $!= "SI"$ *then*
+    + $op("se_lever")()$
+  + *else*
+    + $op("dormir")()$
+  + *end*
+]
 
 Pour en revenir à l'algorithme d'Euclide, la suite d'instructions définie est donc bien un *algorithme*, en revanche, le code suivant en est une implémentation en OCaml (*n'apprenez pas le OCaml pour le moment* ! Si vous souhaitez vous initier au OCaml, ce document contient dans les dernières pages un lien vers une super série de vidéos).
 
@@ -124,14 +170,14 @@ Vous avez 25 chevaux et vous voulez les 3 plus rapides, mais vous n'avez le droi
 
 Pour comparer deux algorithmes, on peut envisager plusieurs pistes. Une méthode naïve serait de lancer les deux algorithmes sur une même machine et comparer le temps de calcul. Cette méthode pose plusieurs problèmes :
 
-- Qui nous dit qu'un l'algorithme n'est pas plus rapide qu'un autre à cause d'une spécificité du système ?
+- Qui nous dit qu'un algorithme n'est pas plus rapide qu'un autre à cause d'une spécificité du système ?
 - On ne teste ici le programme que sur une seule entrée: rien ne nous assure que le résultat serait toujours valable pour d’autres entrées.
 
 Il y a encore d'autres problèmes qui peuvent intervenir mais les deux cités suffisent à comprendre que ce n'est pas la piste à suivre.
 
 Avant d'analyser un algorithme (en donner la #imp[complexité]), il faut savoir en fonction de quoi l'analyser. Par exemple, pour un algorithme de tri, l'analyser en fonction du plus grand élément passé en entrée n'a pas réellement de sens (puisqu'on suppose que la comparaison entre deux entiers est, à une constante près, la même indépendamment de la taille). En revanche, l'étudier selon la taille de la liste passée en entrée semble plus intéressant. On note désormais $n$ la taille de l'entrée.
 
-Maintenant que l'on sait selon quel paramètre nous voulons étudier notre algorithme, il faut savoir ce que l'on veut mesurer. Notre but est d'obtenir une #imp[approximation asymptotique], ce qui (dans un langage plus raisonnable) revient à expliquer à quel point la complexité croît en fonction de l'entrée. Par exemple, pour une fonction qui parcourt deux fois une liste, on aura une croissance linéaire ($2 times n$). Ainsi, on notera $theta (n)$, ne vous tracassez pas pour la notation $theta$, il s'agit d'une des #imp[notations de Landau], elles sont au programme de NSI mais vous seront clairement rappellés en prépa. Retenez simplement que pour exprimer que #imp[la croissance de l'algorithme, notée $C_n$,est "à une constante près", une fonction $g(n)$], on note $C_n = theta(g(n))$.
+Maintenant que l'on sait selon quel paramètre nous voulons étudier notre algorithme, il faut savoir ce que l'on veut mesurer. Notre but est d'obtenir une #imp[approximation asymptotique], ce qui (dans un langage plus raisonnable) revient à expliquer à quel point la complexité croît en fonction de l'entrée. Par exemple, pour une fonction qui parcourt deux fois une liste, on aura une croissance linéaire ($2 times n$). Ainsi, on notera $theta (n)$, ne vous tracassez pas pour la notation $theta$, il s'agit d'une des #imp[notations de Landau], elles sont au programme de NSI mais vous seront clairement rappelés en prépa. Retenez simplement que pour exprimer que #imp[la croissance de l'algorithme, notée $C_n$,est "à une constante près", une fonction $g(n)$], on note $C_n = theta(g(n))$.
 
 Vous vous dîtes sûrement que cette notation n'a pas d'intérêt car écrire $2n$ est bien plus précis. Vous auriez raison s'il n'y avait pas de constantes ignorées dans ce calcul. Pour comprendre ce que je viens de dire, voici un exemple :
 
@@ -154,7 +200,7 @@ Vous vous dîtes sûrement que cette notation n'a pas d'intérêt car écrire $2
 L'algorithme prend pour entrée une liste de $n-1$ cadeaux dans un tableau. On va donc exprimer la complexité selon cette taille $n$. On peut se rendre compte qu'on a une complexité $theta (n^2)$ à la main:
 On fait une boucle principale de 1 à $n$ et à chaque appel on a une boucle de taille $i$.
 
-On pourraît se dire qu'un calcul mathématique nous permettrait de connaître la complexité précise de la fonction. Mais pour l'obtenir, il faudrait connaître la complexité de `Chanter`, or on sait juste qu'elle est constante, ce qu'on peut noter $theta(1)$. Il y a dès ce moment une approximation, aussi précis que l'on veuille être, cette approximation sera toujours la, il faut donc uniquement chercher un autre de grandeur car le $theta (1)$ de `Chanter` ne dépend pas de $n$ et n'affectera donc que par des constantes l'évolution de la complexité en fonction de la valeur $n$ passée en entrée.
+On pourraît se dire qu'un calcul mathématique nous permettrait de connaître la complexité précise de la fonction. Mais pour l'obtenir, il faudrait connaître la complexité de `Chanter`, or on sait juste qu'elle est constante, ce qu'on peut noter $theta(1)$. Il y a dès ce moment une approximation, aussi précis que l'on veuille être, cette approximation sera toujours là, il faut donc uniquement chercher un ordre de grandeur car le $theta (1)$ de `Chanter` ne dépend pas de $n$ et n'affectera donc que par des constantes l'évolution de la complexité en fonction de la valeur $n$ passée en entrée.
 
 
 
@@ -163,21 +209,23 @@ On pourraît se dire qu'un calcul mathématique nous permettrait de connaître l
 Avant toute chose, on s'intéresse aux *pires cas* des algorithmes, c'est-à-dire les entrées les plus défavorables, ce qui permet de dire "je suis sûr que pour toute entrée, la complexité ne peut pas dépasser cet ordre de grandeur". Si on prend le meilleur cas, l'algorithme consistant à prendre une liste en entrée et attendre (boucle `while` ne faisant rien dans le cas non trié) qu'elle se trie toute seule est un algorithme de tri linéaire puisque le meilleur cas (liste triée) est de complexité linéaire (pour savoir si elle est triée). Il n'y a donc aucun intérêt à prendre le meilleur cas.
 
 
-Voici deux algortihmes :
-```
-Algo1:
-    Entrée : une matrice de taille n*n symétrique
-    Pour i allant de 0 à (n-1)
-        Pour j allant de i à (n-1)
-            faire_truc(i,j)
-```
-```
-Algo2:
-    Entrée : une matrice de taille n*n symétrique
-    Pour i allant de 0 à (n-1)
-        Pour j allant de 0 à (n-1)
-            faire_truc(i,j)
-```
+Voici deux algorithmes :
+#pseudocode-list(title: [Algo1])[
+  + *input:* une matrice de taille $n times n$ symétrique
+  + *for* $i <- 0$ *to* $n-1$ *do*
+    + *for* $j <- i$ *to* $n-1$ *do*
+      + $op("faire_truc")(i, j)$
+    + *end*
+  + *end*
+]
+#pseudocode-list(title: [Algo2])[
+  + *input:* une matrice de taille $n times n$ symétrique
+  + *for* $i <- 0$ *to* $n-1$ *do*
+    + *for* $j <- 0$ *to* $n-1$ *do*
+      + $op("faire_truc")(i, j)$
+    + *end*
+  + *end*
+]
 
 On pourraît se dire que le premier est plus optimisé car il va parcourir moins de cases, il ne va parcourir que la partie supérieure de la matrice. Or, si on fait une analyse fine, on aura une complexité (on suppose que `faire_truc` a un coût de 1) $1 + 2 + 3+ ... + n$ et cette somme vaut $n(n+1)/2$ (au programme de première spé maths), on a donc quelque chose "de l'ordre de  $n^2$", c'est-à-dire qu'à un terme négligeable (tracer les fonctions $x -> x^2$ et $x -> x$ sur votre calculatrice ou sur géogebra) près, on a un algorithme de l'ordre de $n^2$. C'est le même ordre que pour l'algorithme 2 qui lui va pourtant parcourir toutes les cases.
 
@@ -187,15 +235,16 @@ Depuis le début on utilise des $theta$ car on prend des exemples simples et qu'
 
 C'est en réalité très pratique, il devient beaucoup plus simple de donner des complexités à l'oeil nu :
 
-```
-Additionner_matrice:
-    Entrée : M une matrice de taille n*n
-    resultat <- 0
-    pour i allant de 0 à (n-1)
-        pour j allant de 0 à (n-1)
-            resultat <- résultat + M[i][j]
-    renvoyer resultat
-```
+#pseudocode-list(title: [Additionner_matrice])[
+  + *input:* $M$ une matrice de taille $n times n$
+  + $op("resultat") <- 0$
+  + *for* $i <- 0$ *to* $n-1$ *do*
+    + *for* $j <- 0$ *to* $n-1$ *do*
+      + $op("resultat") <- op("resultat") + M[i][j]$
+    + *end*
+  + *end*
+  + renvoyer $op("resultat")$
+]
 On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxième boucle exécute une opération $O(1)$ (une somme, un accès à `résultat` et une affectation), donc $O(n^2)$. Et *c'est tout* ! Si vous avez compris ça, vous savez donner la complexité de 50% des algorithmes que vous verrez durant vos années en prépa (évidemment il y aura des subtilités, notamment avec la récursivité, mais ceci est l'idée principale à avoir en tête).
 
 #exo_nd(title: "Complexité du produit matriciel", etoile: 2)[
@@ -207,14 +256,17 @@ On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxi�
   
 
     1. Soit l'algorithme suivant : 
-    ```
-    CoffeeSearch:
-        Entrée: L une liste d'entiers de taille n, x un entier
-        Pour e dans L:
-            Si e == x, alors renvoyer Vrai
-            Sinon faire_un_cafe()
-        renvoyer Faux
-    ```
+    #pseudocode-list(title: [CoffeeSearch])[
+      + *input:* $L$ une liste d'entiers de taille $n$, $x$ un entier
+      + *for* $e$ dans $L$ *do*
+        + *if* $e = x$ *then*
+          + renvoyer *Vrai*
+        + *else*
+          + $op("faire_un_cafe")()$
+        + *end*
+      + *end*
+      + renvoyer *Faux*
+    ]
     Sachant que l'opération `faire_un_cafe` prend environ $100 000$ étapes, quelle est la complexité (à un ordre près) de l'algorithme `CoffeeSearch` ?
 ]
 
@@ -227,13 +279,16 @@ On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxi�
     3. Donnez un ordre de grandeur de la complexité
 ]
 
+#pagebreak(weak: true)
+
 #exo_nd(title: "Carmin-sur-mer", etoile: 2)[
-    #image("images/carmin.png",width:40%)
     Voici l'arène de Carmin-sur-mer. Il y a $3$ rangées de $5$ poubelles devant vous. Deux d'entre elles contiennent un interrupteur, on sait qu'elles sont adjacentes.
     Tant qu'aucun interrupteur n'a été trouvé, ils ne changent pas de position. Dès qu'un d'entre eux est trouvé, vous avez un essai. Si vous trouvez les deux interrupteurs, vous gagnez, sinon les interrupteurs changent aléatoirement de place et il faut recommencer. 
 
+    #carmin-arena()
+
     1. Proposez un algorithme naïf pour trouver une solution à l'arène (celle qu'un enfant de 8 ans ferait).
-    2. Proposez une optimisation à l'aide d'un tableau de poubelles "déjà vus".
+    2. Proposez une optimisation à l'aide d'un tableau de poubelles "déjà vues".
     3. Sachant que si vous vous ratez plus de 100 fois, vous êtes assurés d'avoir bon à la 101ème tentative, quelle est la complexité de votre premier algorithme ? De la version optimisée ?
 ]
 
@@ -263,7 +318,7 @@ On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxi�
 #exo_nd(title: "Bruteforcing pour les nuls")[
     Vous venez de voler un PC à un inconnu dans un bus (ce n'est pas très gentil), vous courrez vous enfermer chez vous et vous l'allumez : il y a un mot de passe !
 
-    1. Si il s'agit des codes PIN de windows Hello (4 chiffres), combien d'essais vous faudrait-il pour bruteforce le mot de passe ? Ecrire l'algorithme.
+    1. S'il s'agit des codes PIN de windows Hello (4 chiffres), combien d'essais vous faudrait-il pour bruteforce le mot de passe ? Ecrire l'algorithme.
     2. Par manque de chance, vous avez bloqué Windows Hello : pas grave, il vous reste son mot de passe classique. Heureusement pour vous, il a laissé une note "longueur = 14". Sachant que son mot de passe n'utilise que des lettres de l'alphabet, combien de mot de passe faut-il tester ? Quelle serait la complexité d'un algorithme de bruteforce ?
 
     3. Si vous savez que son mot de passe commence par un $P$, de combien pouvez-vous réduire la complexité ?
@@ -327,17 +382,18 @@ Dans le code de `fact`, il y a le cas `if n==0` qui est mis en première ligne, 
 ]
 #exo_nd(title: "Un peu de proba... ", etoile: 3)[
     Soit l'algorithme suivant :
-    ```
-    Proba:
-        Entrée: n et k deux entiers
-        if n==0: 
-            renvoyer k
-        res<- lancer_piece()
-        if res == Pile:
-            renvoyer proba(n-1,k+1)
-        else: 
-            renvoyer proba(n,k+1)
-    ```
+    #pseudocode-list(title: [Proba])[
+      + *input:* $n$ et $k$ deux entiers
+      + *if* $n = 0$ *then*
+        + renvoyer $k$
+      + *end*
+      + $op("res") <- op("lancer_piece")()$
+      + *if* $op("res") =$ Pile *then*
+        + renvoyer $op("proba")(n-1, k+1)$
+      + *else*
+        + renvoyer $op("proba")(n, k+1)$
+      + *end*
+    ]
 
     Exemple d'utilisation : `proba(n,0)`
 
@@ -377,13 +433,16 @@ f(2) dépilé
 #exo_nd(title: "Blocs d'activation")[
     1. Donnez l'enchaînement décrivant `fact(5)`.
     2. On propose l'algorithme suivant pour la suite de fibonacci :
-    ```
-    fibo:
-        Entrée:  n
-        Si n==0 renvoyer 0
-        Sinon Si n==1 renvoyer 1
-        Sinon renvoyer fibo(n-1)+fibo(n-2)
-    ```
+    #pseudocode-list(title: [Fibo])[
+      + *input:* $n$
+      + *if* $n = 0$ *then*
+        + renvoyer 0
+      + *else if* $n = 1$ *then*
+        + renvoyer 1
+      + *else*
+        + renvoyer $op("fibo")(n-1) + op("fibo")(n-2)$
+      + *end*
+    ]
     Donnez l'enchaînement décrivant `fibo(5)`
     3. Pouvez-vous le faire pour `fibo(10)` ?
     4. Codez cette fonction dans le langage de votre choix, pour quelle valeur de $n$ le temps d'attente devient trop long ?
@@ -400,7 +459,7 @@ Si vous avez fait l'exercice 2-5, vous avez remarqué que pour une valeur de `n`
 Pour aller un peu plus loin, on peut voir à la main que `fibo` va être bien plus lourde que `fact` en imaginant l'arbre des appels, on se rend compte que `fibo` va avoir, pour chaque appels, deux sous-branches (l'appel à $n-1$ et celui à $n-2$). Chaque sous-branche va elle-même en avoir deux et ainsi de suite, on appelle ceci un arbre binaire, vous le verrez en première année, visuellement cet arbre est bien plus lourd que les appels de `fact` qui ne font qu'une simple ligne.
 
 === Spatiale
-Une autre notion importante est la complexité spatiale. En réalité, avec nos ordinateurs modernes, elle n'a la plupart du temps peu d'importance. Cependant elle peut-être utile dans des contextes précis (faire décoller une fusée entre autres) et peut aussi nous provoquer quelques erreurs embêtants, dont les fameux StackOverflow, qui sont un dépassement de l'espace alloué aux fonctions récursives (la pile où on stocke les blocs d'activation).
+Une autre notion importante est la complexité spatiale. En réalité, avec nos ordinateurs modernes, elle n'a la plupart du temps peu d'importance. Cependant elle peut-être utile dans des contextes précis (faire décoller une fusée entre autres) et peut aussi nous provoquer quelques erreurs embêtantes, dont les fameux StackOverflow, qui sont un dépassement de l'espace alloué aux fonctions récursives (la pile où on stocke les blocs d'activation).
 
 Comment évaluer la complexité spatiale ? Avec des langages comme Python, ce n'est pas toujours très facile : est-ce qu'un tableau a une taille bien adaptée, ou est-ce qu'il a été sur-évalué ? sous-évalué ? Bref, le fait que Python veuille nous simplifier la vie a des contre-parties, dont celui d'avoir plus de mal à identifier la complexité spatiale. On préfère alors les #imp[langages typés], ça tombe bien C et OCaml le sont ! C'est-à-dire que quand vous déclarez une variable, il faut en préciser le type. Ainsi, vous ne pouvez pas déclarer un tableau d'entiers et y stocker Harry Potter volume 1 (en Python, vous pouvez).
 
@@ -413,11 +472,11 @@ int* tableau = (int*)(malloc(sizeof(int)*n));
 Ce n'est pas la syntaxe la plus simple, mais c'est la plus parlante. Sans rentrer dans les détails, on a `sizeof(int)` qui renvoie la taille d'un entier dans le système qu'on utilise et la multiplication par `n` qui permet d'être sûr qu'on a un `O(n)` comme complexité en espace.
 On se rend donc compte que le C est certes un peu plus lourd en syntaxe, mais est mille fois plus précis que les instructions Python `tab = []` et `tab.append(truc)`.
 
-Pour les fonctions récursives, si vous n'êtes pas en récursivité terminale (je ne rentre pas dans ces détails, vous verrez ceci en cours de OCaml), vous pouvez considérer que `n` appels récursifs à une fonction qui a une complexité spatiale $O(l)$ est en complexité spatiale $O(l times n)$. C'est logique : les blocs d'activations sont ajoutés à la pile d'exécution donc dans le pire cas, on a ajouté tous les blocs sans en retirer on a donc une pile de $n$ blocs de hauteur de $O(l)$ donc bien du $O(l times n)$. Ainsi, quand on demande des fonctions récursives en complexité spatiale $O(1)$, c'est que chaque appel doit être en $O(1)$ et que vous n'avez pas le droit de faire des opérations mémoires avant d'appeller la fonction (ie pas de tableau déclaré avant l'appel) 
+Pour les fonctions récursives, si vous n'êtes pas en récursivité terminale (je ne rentre pas dans ces détails, vous verrez ceci en cours de OCaml), vous pouvez considérer que `n` appels récursifs à une fonction qui a une complexité spatiale $O(l)$ est en complexité spatiale $O(l times n)$. C'est logique : les blocs d'activations sont ajoutés à la pile d'exécution donc dans le pire cas, on a ajouté tous les blocs sans en retirer on a donc une pile de $n$ blocs de hauteur de $O(l)$ donc bien du $O(l times n)$. Ainsi, quand on demande des fonctions récursives en complexité spatiale $O(1)$, c'est que chaque appel doit être en $O(1)$ et que vous n'avez pas le droit de faire des opérations mémoires avant d'appeler la fonction (ie pas de tableau déclaré avant l'appel) 
 
 #exo_nd(title: "Rendre fibonacci linéaire" + $star$)[
     1. Proposez une manière de rendre l'algorithme de fibonacci en complexité linéaire (toujours en récursif !) à l'aide de la "mémoïsation" (si vous n'avez pas eu NSI, la correction de cette question est disponible juste en-dessous)
-    ($star star star$)2. Faîtes de meme, mais en complexité spatiale $O(1)$ (donc $O(k)$ pour $k$ appels récursifs)
+    ($star star star$)2. Faites de même, mais en complexité spatiale $O(1)$ (donc $O(k)$ pour $k$ appels récursifs)
 ]
 
 #imp[Correction de la question 1 (exemple de mémoïsation)]
@@ -481,16 +540,17 @@ def fibo(n):
 
 #exo_nd(title: "Un tri", etoile: 2)[
     Voici un algorithme de tri:
-    ```
-    Tri:
-        Entrée: T tableau d'entiers de taille n
-        Si n==1: renvoyer ()
-        Sinon:
-            Tri(T[0:n/2],n/2)
-            Tri(T[n/2:n],n/2)
-            Fusionner(0,n,n/2)
-    ```
-    En admettant que `Fusionner` est de complexité à peu près $n$, donnez une relation de récurrence décrivant la complexité de `Tri`. On admettra qu'elle se résoud en $n log(n)$.
+    #pseudocode-list(title: [Tri])[
+      + *input:* $T$ tableau d'entiers de taille $n$
+      + *if* $n = 1$ *then*
+        + renvoyer $()$
+      + *else*
+        + $op("Tri")(T[0:n/2], n/2)$
+        + $op("Tri")(T[n/2:n], n/2)$
+        + $op("Fusionner")(0, n, n/2)$
+      + *end*
+    ]
+    En admettant que `Fusionner` est de complexité à peu près $n$, donnez une relation de récurrence décrivant la complexité de `Tri`. On admettra qu'elle se résout en $n log(n)$.
 ]
 
 #exo_nd(title: "Un beau sapin")[
@@ -555,7 +615,7 @@ def fibo(n):
 
   On applique l'algorithme suivant :
 
-  - On retire le premier élément à gauche puis tous les éléments qui sont sur des indices accessibles en faisant des pas de 2 depuis l'élément retiré (par exemple si on a `1 2 3 4`, on retire `1 3` et il reste `2 4`).
+  - On retire le premier élément à gauche puis tous les éléments qui sont situés à des indices accessibles en faisant des pas de 2 depuis l'élément retiré (par exemple si on a `1 2 3 4`, on retire `1 3` et il reste `2 4`).
 
   - On retire le dernier élément (donc le plus à droite) et on fait de même (avec le même exemple il resterait `1 3`)
   - On répète en alternant tant qu'il ne reste pas qu'un seul élément
@@ -603,7 +663,6 @@ Ainsi, on peut voir un tableau comme une structure à deux paramètres : `t.n` s
     1. Stocker $n$ fixé entiers en mémoire et y accéder rapidement
     2. Stocker les connexions à un site web sur une période d'1 heure sachant qu'il y a au plus 10 connexions par minute.
     3. Stocker les connexions à un site web sur une période de 5 minutes
-    ($star$)4. Implémenter une mémoire d'ordinateur
     5. Faire des mesures de température toutes les 5ms pendant 10 secondes dans le cadre d'une expérience physique
 ]
 
@@ -616,7 +675,7 @@ Ainsi, on peut voir un tableau comme une structure à deux paramètres : `t.n` s
 ]
 
 == Listes
-Une liste est une structure de donnée dans laquelle on a accès qu'au premier élément et à la suite. C'est-à-dire que pour représenter `1,2,3` sous forme de liste, on peut le voir comme ceci : `1:(2:(3))`. L'avantage principale est qu'il n'y a pas de taille pré-définie pour une liste, on peut à tout moment définir une nouvelle liste `4:l` par exemple avec `l = 1:(2:(3))`. Cependant, il y a un inconvénient, essayez de faire ce mini-exercice avant de lire la suite :
+Une liste est une structure de donnée dans laquelle on a accès qu'au premier élément et à la suite. C'est-à-dire que pour représenter `1,2,3` sous forme de liste, on peut le voir comme ceci : `1:(2:(3))`. L'avantage principal est qu'il n'y a pas de taille pré-définie pour une liste, on peut à tout moment définir une nouvelle liste `4:l` par exemple avec `l = 1:(2:(3))`. Cependant, il y a un inconvénient, essayez de faire ce mini-exercice avant de lire la suite :
 #exo_nd(title : "Inconvénient d'une liste")[
     Selon vous, qu'elle va être la propriété utile d'un tableau qui ne sera plus vraie pour une liste ?
 ]
@@ -662,7 +721,7 @@ Ainsi on peut facilement donner des algorithmes sur les listes :
 
 == Pourquoi le OCaml ?
 
-Si vous avez déjà regardé un petit peu le programme, vous savez qu'il contient deux langages : C et OCaml. Le C est un choix logique, mais pour le OCaml cela peut vous sembler étrange. L'avantage du OCaml est qu'il fait partie des langages dans lequel il est simple d'écrire en récursif (il est pensé pour). Ainsi (et ce n'est qu'un exemple parmis de nombreux autres), on  peut facilement manipuler des types qui sont définis inductivement. Cette facilité provient de l'outil `match` majoritairement, il permet de raisonner *par cas*, voici un exemple simple (je ne vous demande pas de comprendre la syntaxe, mais plutôt l'idée derrière):
+Si vous avez déjà regardé un petit peu le programme, vous savez qu'il contient deux langages : C et OCaml. Le C est un choix logique, mais pour le OCaml cela peut vous sembler étrange. L'avantage du OCaml est qu'il fait partie des langages dans lequel il est simple d'écrire en récursif (il est pensé pour). Ainsi (et ce n'est qu'un exemple parmi de nombreux autres), on  peut facilement manipuler des types qui sont définis inductivement. Cette facilité provient de l'outil `match` majoritairement, il permet de raisonner *par cas*, voici un exemple simple (je ne vous demande pas de comprendre la syntaxe, mais plutôt l'idée derrière):
 ```ocaml
 let rec parcours l =
     match l with
@@ -805,7 +864,7 @@ Par exemple, `11011 ^ 01101 = 10110`.
 
 ($star star$)3. Écrivez un algorithme qui #imp[échange le contenu de deux variables `a` et `b` (des entiers) sans utiliser de variable intermédiaire].
 
-($star$)4. Écrivez un algorithme qui prend entrée un entier $n in NN$ et renvoie la partié de ce nombre *en utilisant le XOR*.
+($star$)4. Écrivez un algorithme qui prend entrée un entier $n in NN$ et renvoie la parité de ce nombre *en utilisant le XOR*.
 ]
 
 #exo_nd(title: "Le XORShift", etoile: 2)[
@@ -839,7 +898,7 @@ Par exemple, `11011 ^ 01101 = 10110`.
   Une porte XOR est un opérateur qui prend en entrée deux bits et renvoie 1 si ils sont différents, 0 sinon. Une porte NOT inverse son entrée (1 donne 0, 0 donne 1)
 
   1. Expliquez comment obtenir une porte OR avec ces deux portes (OR vaut 1 si au moins une des deux entrées est vraie)
-  2. Expliquez comment obtenir une porte AND avec des deux portes.
+  2. Expliquez comment obtenir une porte AND avec ces deux portes.
   3. On suppose avoir une porte qui décompose un nombre sur $n$ bits en ses $n$ bits (on a une entrée par bit), expliquez comment faire un XOR entre des nombres encodés sur $n$ bits grâce à cette porte.
 ]
 
@@ -909,11 +968,11 @@ Maintenant que vous avez une vague idée des raisonnements inductifs, voyons un 
 Voici un exemple d'arbre pour vous faire une idée :
 
 #figure(
-  image("images/arbre.png", width: 50%),
+  binary-tree-example(),
   caption: [
-    Exemple d'arbre (source: Wikipédia)
+    Exemple d'arbre
   ],
-)
+) <fig:binary-tree>
 
 #pl(title: "Le OCaml, ce sauveur" + $star star$)[
     Plus haut, j'avais dit que le OCaml était très pratique pour les types définis par induction, voyons voir pourquoi. On définit la hauteur d'un arbre binaire de la sorte :
@@ -1082,17 +1141,6 @@ Montrez que n'importe quel mot peut être encodé par ce type.
   #rem[On pensera à d'abord faire l'exercice disponible dans la section Récursivité qui vous fait coder la fonction `atoi` (qui prend en entrée une chaîne de caractères contenant uniquement des entiers et renvoie le nombre associé)]
 ]
 
-#exo_nd(title: "Fusion croissante", etoile: 3)[
-
-  1. Écrire un algorithme qui prend en entrée 2 listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces deux listes.
-
-  2. En donner la complexité (si elle n'est pas linéaire, vous pouvez essayer d'améliorer votre algorithme)
-
-  3. Écrire un algorithme qui prend en entrée $k$ listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces $k$ listes.
-
-  ($star star star$)4. Quelle en est la complexité ? (on peut trouver en $O(n log(k))$ avec $n$ le nombre total d'éléments si on utilise une file de priorité)
-]
-
 
 = Raisonnement dynamique
 
@@ -1150,9 +1198,9 @@ Ainsi, ce problème est résolu dynamiquement !
 Voici un deuxième exemple, beaucoup plus compliqué, réservez-le en deuxième lecture ! 
 
 
-Étant donné deux mots $a$ et $b$, on appelle #imp[plus long facteur commun] de $a$ et $b$ le plus long mot $w$ tel que $w$ apparaisse dans $a$ et apparaisse dans $b$ (pas forcément à la suite, mais avec des indices strictement croissants) . Par exemple, si on prend `ABRICOTS` et `ABRIBUS`,le plus grand facteur sera `ABRIS` #imp[avec un S]. Voyons comment résoudre ce problème grâce à un raisonnement dynamique :
+Étant donné deux mots $u$ et $v$, on appelle #imp[plus long facteur commun] de $u$ et $v$ le plus long mot $w$ tel que $w$ apparaisse dans $u$ et apparaisse dans $v$ (pas forcément à la suite, mais avec des indices strictement croissants) . Par exemple, si on prend `ABRICOTS` et `ABRIBUS`,le plus grand facteur sera `ABRIS` #imp[avec un S]. Voyons comment résoudre ce problème grâce à un raisonnement dynamique :
 
-On note $n$ la taille de $a$ et $p$ la taille de $b$. On va découper notre problème selon le préfixe de $u$ et $v$ que l'on regarde (un préfixe est un mot de la forme $u_1 ... u_i$). On a alors un tableau de cette forme :
+On note $n$ la taille de $u$ et $p$ la taille de $v$. On va découper notre problème selon le préfixe de $u$ et $v$ que l'on regarde (un préfixe est un mot de la forme $u_1 ... u_i$). On a alors un tableau de cette forme :
 
 TODO
 
@@ -1172,7 +1220,7 @@ L'idée est la suivante : Quand on veut le plus grand facteur entre $u$ et $v$ a
 - Si $u_i = v_j$, on peut tenter de trouver un facteur qui tient compte de cette égalité : $1 + p f c(u,v)_(i-1,j-1)$
 - Sinon, on renvoie simplement $max (p f c(u,v)_(i,j-1), p f c(u,v)_(i-1,j))$
 
-Enfin, on fait attention dans le premier cas à tout de même proposer l'autre solution (on peut possiblement proposer des cas pathologiques où c'est plus optimale de ne pas compter une lettre commune). Ainsi, on peut remplir le tableau ligne par ligne, ou colonne par colonne, et on aura bien que quand on calcule $(i,j)$, on aura déjà calculé toutes les valeurs dont on a besoin (grace aux cas de base).
+Enfin, on fait attention dans le premier cas à tout de même proposer l'autre solution (on peut possiblement proposer des cas pathologiques où c'est plus optimal de ne pas compter une lettre commune). Ainsi, on peut remplir le tableau ligne par ligne, ou colonne par colonne, et on aura bien que quand on calcule $(i,j)$, on aura déjà calculé toutes les valeurs dont on a besoin (grace aux cas de base).
 
 
 == Exercices
@@ -1336,12 +1384,39 @@ Il faut faire attention à quelques points:
 - Quand on renvoie faux ce n'est pas la fin, sauf si c'est le premier choix qui renvoie faux. De manière générale, `faux` = retour en arrière de 1.
 - La fonction de test de solutions partielles est souvent le point le plus compliqué.
 
+== À la Knuth $star$
+
+Une manière plus mathématique de voir le retour sur trace est de ne pas parler tout de suite de programme, mais de #imp[suites partielles].
+
+On cherche un objet de la forme $(x_1, ..., x_n)$. Pour chaque longueur $l$, on se donne une propriété $P_l(x_1, ..., x_l)$ qui dit si le début de solution est encore possible. L'algorithme essaye une valeur pour $x_l$, vérifie $P_l$, puis continue seulement si la propriété est vraie. Si $P_l$ est fausse, il ne sert à rien de compléter la suite : toutes les suites qui commencent ainsi sont déjà perdues.
+
+C'est la différence essentielle avec une force brute déguisée. La force brute génère une solution complète puis teste à la fin. Le retour sur trace teste pendant la construction. En revanche, le nom "retour sur trace" insiste sur le geste informatique : on modifie une solution partielle, puis on annule la modification quand la branche échoue. La vision "à la Knuth" insiste plutôt sur l'arbre des préfixes admissibles.
+
+#exo_nd(title: "Les reines, version papier", etoile: 4)[
+  On veut placer $n$ reines sur un échiquier $n times n$ de sorte qu'aucune ne puisse en attaquer une autre.
+
+  1. Pourquoi peut-on chercher uniquement des solutions qui placent exactement une reine par ligne ?
+  2. Si $x_i$ désigne la colonne de la reine placée sur la ligne $i$, donner une condition simple pour que deux reines placées aux lignes $i$ et $j$ soient en conflit.
+  3. En déduire une propriété $P_l(x_1, ..., x_l)$ permettant de faire du retour sur trace.
+  4. Expliquer précisément ce que l'algorithme gagne par rapport à l'énumération de toutes les permutations de colonnes.
+  5. ($star$) Comment remplacer le test de collision par trois tableaux de booléens qui indiquent les colonnes et les deux familles de diagonales déjà occupées ?
+]
+
 == Exercices de fin de partie
 Les exercices sont durs et cette notion sera intégralement revue en MP2I donc je vous mets qu'un seul exercice, à traiter seulement si le cours vous en dit.
 
 #exo_nd(title: "Sudoku", etoile: 3)[
   1. Reprendre l'exercice "Sudoku, première rencontre"
   2. On va vouloir résoudre le sudoku par retour sur trace avec pour fonction de vérification la fonction qui vous dit si la grille viole une règle du sudoku. L'idée est de se donner un ordre arbitraire sur les cases et de combler les trous 1 à 1 avec toutes les valeurs possibles (de 0 à 9). Coder cet algorithme en python.
+]
+
+#exo_nd(title: "Cavalier sans oracle", etoile: 5)[
+  Un cavalier part de la case en haut à gauche d'un échiquier $n times n$. On veut trouver une suite de coups telle qu'il visite chaque case exactement une fois.
+
+  1. Modéliser une solution partielle.
+  2. Donner la fonction qui teste si un coup est admissible.
+  3. Écrire un algorithme de retour sur trace qui cherche une tournée.
+  4. Sur quels choix d'ordre des coups l'algorithme peut-il énormément gagner ou perdre ?
 ]
 = Introduction aux graphes
 
@@ -1363,11 +1438,11 @@ C'est-à-dire qu'un graphe, c'est des sommets ($1$, $2$,... par exemple) et des 
 Pour avoir les idées fixes, donnons un premier exemple de graphe. Modélisons le groupe d'amis d'Alice par un graphe tel que deux personnes soient reliées si elles se suivent mutuellement sur Instagram.
 
 #figure(
-  image("graph/premier_ex.jpg", width: 50%),
+  graph-friends(),
   caption: [
     Exemple de graphe
   ],
-)
+) <fig:friends-graph>
 
 On peut alors lire que `Eve` est amie avec `Wole` et `Adam` mais qu'elle n'est pas directement amie avec `Alice`.
 
@@ -1377,7 +1452,7 @@ On peut alors lire que `Eve` est amie avec `Wole` et `Adam` mais qu'elle n'est p
   On appelle chemin une suite finie de sommets $(s_1,...,s_n)$ telle que $forall i in [|1;n-1|], \{s_i, s_(i+1)\} in A$. La taille d'un chemin est son nombre d'arêtes, donc $n-1$ selon cette définition.
 ]
 
-Par exemple, si on considère le graphe de la figure 1, on a le chemin `Jack,Wole,Eve,Adam`, mais `Eve,Alice,Adam` n'est pas un chemin car il n'y a pas d'arête de `Eve` à `Alice`.
+Par exemple, si on considère le graphe de la @fig:friends-graph, on a le chemin `Jack,Wole,Eve,Adam`, mais `Eve,Alice,Adam` n'est pas un chemin car il n'y a pas d'arête de `Eve` à `Alice`.
 
 Il existe différents types de chemins pouvant nous intéresser.
 
@@ -1416,12 +1491,12 @@ Voici un deuxième exemple :
 
 #exo_nd(title: "Composante connexe")[
   #figure(
-  image("graph/cc.jpg", width: 50%),
+  graph-components(),
   caption: [
     Composante connexe
   ],
-)
-  Identifiez les composantes connexes du graphe de la figure 2.
+) <fig:components-graph>
+  Identifiez les composantes connexes du graphe de la @fig:components-graph.
 ]
 
 == Cycle
@@ -1438,11 +1513,11 @@ Voici un deuxième exemple :
 
 #exo_nd(title: "Est un cycle ?")[
   #figure(
-  image("graph/ex_cycle.jpg", width: 30%),
+  graph-cycle-example(),
   caption: [
     Graphe de l'exercice
   ],
-)
+) <fig:cycle-graph>
   Quel est le plus grand cycle de ce graphe ?
 ]
 
@@ -1456,7 +1531,7 @@ Il y a deux manières "usuelles" de représenter un graphe :
 Dans le premier cas, on représente les arêtes par un tableau 2-dimension tel que `tab[i][j]` soit à `True` si et seulement si l'arête reliant `i` à `j` est dans le graphe (et donc à `False` sinon). Dans le second, on a une liste par sommets et la liste du sommet `i` contient `j` si et seulement si l'arête reliant `i` à `j` existe.
 
 #exo_nd(title: "Représentation d'un graphe")[
-  1. Représentez le graphe de la figure 3 sous forme de matrice d'adjacence
+  1. Représentez le graphe de la @fig:cycle-graph sous forme de matrice d'adjacence
   ($star$)2. Que peut-on dire de la matrice ainsi obtenue (quelle propriété a-t-elle) ? Est-ce que sur cet exemple ou est-ce propre aux graphes non-orientés ?
   3. Représentez le graphe des amis d'Alice sous forme de liste d'adjacence.
   
@@ -1494,7 +1569,7 @@ def parcours_prof(g):
 #exo_nd(title: "Autour du parcours en profondeur")[
   1. Executez le parcours en profondeur sur le graphe des amis d'Alice.
 
-  2. Executez le parcours en profondeur sur le graphe de la figure 2.
+  2. Executez le parcours en profondeur sur le graphe de la @fig:components-graph.
 
   ($star$)3. Quel lien peut-on faire en parcours en profondeur et composante connexe ?
 
@@ -1514,7 +1589,7 @@ def parcours_prof(g):
 Il existe aussi des graphes qui sont #imp[orientés], c'est-à-dire qu'on ne prend plus les notations ensemblistes pour les arêtes. Voici la définition :
 
 #def(title: "Graphe orienté")[
-  Un graphe orienté est la donnée d'un ensemble $S$ de sommets et d'un ensemble de couples, de sommets que l'on note $A$.
+  Un graphe orienté est la donnée d'un ensemble $S$ de sommets et d'un ensemble de couples de sommets que l'on note $A$.
 ]
 
 #rem[Ainsi, un graphe orienté peut avoir une arête d'un sommet à lui-même, ce n'est pas interdit.]
@@ -1522,11 +1597,11 @@ Il existe aussi des graphes qui sont #imp[orientés], c'est-à-dire qu'on ne pre
 Voici un exemple de graphe orienté, on met une arête de $i$ à $j$ si $i$ suit $j$ sur Instagram. Puisqu'il se peut que $i$ suive $j$ sans que $j$ suive $i$, un graphe orienté est plus adapté :
 
 #figure(
-  image("graph/ex_graph_oriente.png", width: 30%),
+  graph-directed-example(),
   caption: [
     Graphe orienté
   ],
-)
+) <fig:directed-graph>
 #rem[On remarque qu'on a une arête dans les deux sens entre Adam et Bob.]
 
 
@@ -1537,7 +1612,7 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
   Est-ce que dans un graphe orienté, un circuit à 2 sommets est effectivement un circuit ? (on a vu que pour un cycle il en fallait au moins 3)
 
-  (Faîtes un dessin)
+  (Faites un dessin)
 ]
 
 #exo_nd(title: "Parcours en profondeur")[
@@ -1555,7 +1630,7 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
   1. Pourquoi est-ce différent ? Proposez un exemple.
 
-  On définit alors une composante #imp[fortement connexe] comme un ensemble de sommets #imp[maximal au sens de l'inclusion] (ie on a oublié personne) tel que pour tout couple de sommets dedans, on est un chemin reliant le premier au deuxième et un reliant le deuxième au premier.
+  On définit alors une composante #imp[fortement connexe] comme un ensemble de sommets #imp[maximal au sens de l'inclusion] (ie on a oublié personne) tel que pour tout couple de sommets dedans, on ait un chemin reliant le premier au deuxième et un reliant le deuxième au premier.
 
   ($star$) 2. Proposez un algorithme naïf pour donner les composantes fortement connexes.
   
@@ -1596,18 +1671,73 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
 
 ]
-#exo_nd(title: "Graphes biparties")[
-  Un graphe non-orienté est dit bipartie si il existe deux ensembles $A$ et $B$ de sommets tels que toute arête $e$ du graphe connecte un sommet de $A$ et un sommet de $B$, i.e. il n'y a jamais d'arêtes au sein d'une même composante.
+#exo_nd(title: "Graphes bipartis")[
+  Un graphe non-orienté est dit biparti s' il existe deux ensembles $A$ et $B$ de sommets tels que toute arête $e$ du graphe connecte un sommet de $A$ et un sommet de $B$, i.e. il n'y a jamais d'arêtes au sein d'une même composante.
 
   1. Est-ce que tout graphe peut se mettre sous une forme bipartie ?
 
-  2. Dessinez un graphe bipartie à 5 noeuds. Pouvez-vous en proposer un à $n$ sommets pour $n in NN$ ? (#ita[ne cherchez pas trop loin])
+  2. Dessinez un graphe biparti à 5 noeuds. Pouvez-vous en proposer un à $n$ sommets pour $n in NN$ ? (#ita[ne cherchez pas trop loin])
 
-  ($star star star$)3. Écrire un algorithme qui prend en entrée un graphe et renvoie Vrai s'il est bipartie et Faux sinon. 
+  ($star star star$)3. Écrire un algorithme qui prend en entrée un graphe et renvoie Vrai s'il est biparti et Faux sinon. 
 ]
 
 #exo_nd(title: "Au moins deux solitaires", source: "J. Erickson", etoile: 2)[
   Prouvez que tout graphe connexe acyclique à $n >= 2$ sommets a au moins 2 sommets de degré 1 (interdit de parler d'arbre ou de feuille)
+]
+
+== Colorier un graphe
+
+#def(title: "Coloration")[
+  Une coloration d'un graphe non-orienté $G = (S, A)$ est une fonction $c$ qui associe une couleur à chaque sommet, de sorte que deux sommets reliés par une arête aient toujours deux couleurs différentes.
+
+  Le nombre chromatique de $G$, noté $chi(G)$, est le plus petit nombre de couleurs nécessaire pour colorier $G$.
+]
+
+#exo_nd(title: "Coloriage", etoile: 2)[
+  #figure(
+    graph-coloring-examples(),
+    caption: [
+      Trois graphes à colorier
+    ],
+  ) <fig:coloring-graphs>
+
+  Pour chacun des trois graphes de la @fig:coloring-graphs, donner la valeur de $chi(G)$.
+]
+
+#exo_nd(title: "Coloriage idiot")[ 
+  Donner un coloriage très simple qui marche sur tous les graphes. Est-il optimal ?
+]
+
+#exo_nd(title: "Borne par le degré", etoile: 2)[
+  1. Si un sommet a exactement $k$ voisins déjà coloriés, que peut-on garantir pour sa couleur si on choisit la plus petite couleur possible ?
+  2. En déduire une borne supérieure de $chi(G)$ en fonction du degré maximal du graphe.
+  3. Donner un exemple où cette borne est atteinte, et un exemple où elle est très mauvaise.
+]
+
+== Hansel und Gretel $star$
+
+On modélise une forêt par un graphe orienté. Certains sommets sont marqués par des cailloux. Pour chaque sommet $v$, on veut connaître sa distance $d(v)$ au sommet marqué le plus proche. Les sommets non encore calculés ont la valeur `-1`, les sommets marqués ont la valeur `0`.
+
+#figure(
+  hansel-gretel-map(),
+  caption: [
+    Les enfants veulent retrouver la maison en suivant les marques qui donnent la direction la plus prometteuse.
+  ],
+)
+
+#exo_nd(title: "Petits cailloux", etoile: 2)[
+  1. Écrire un algorithme qui remet toutes les étiquettes d'un graphe à `-1`.
+  2. Écrire un algorithme qui marque un sommet donné.
+  3. Proposer un parcours qui calcule tous les $d(v)$ à partir des sommets marqués.
+  4. Pourquoi cet algorithme ressemble-t-il davantage à un parcours en largeur qu'à un parcours en profondeur ?
+]
+
+#exo_nd(title: "Retrouver la sortie", etoile: 3)[
+  On suppose que les distances $d(v)$ ont été calculées. Depuis le sommet de départ, on suit toujours un voisin dont la valeur $d(v)$ est minimale. S'il y en a plusieurs, on garde toutes les possibilités.
+
+  1. Écrire un algorithme qui renvoie tous les sommets pouvant être atteints avec cette règle.
+  2. On dit qu'un marquage est parfait si le seul sommet atteignable avec cette règle est la sortie. Écrire un algorithme qui teste si un marquage est parfait.
+  3. Si on dispose d'au moins autant de cailloux que de sommets, est-ce que marquer tous les sommets donne forcément un marquage parfait ?
 ]
 
 
@@ -1617,10 +1747,10 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
 On se donne un alphabet, noté $Sigma$ usuellement. Par exemple, en binaire on a $Sigma = \{ 0;1\}$, sur notre ordinateur on a $Sigma = $ la table ascii, et pour mon chien on a $Sigma = \{W,O,U,F\}$. Si vous voulez une définition "formelle":
 #def(title: "Alphabet")[
-  Un alphabet $Sigma$ est un ensemble #imp[fini] de symboles (appellés lettres)
+  Un alphabet $Sigma$ est un ensemble #imp[fini] de symboles (appelés lettres)
 ]
 
-On définie ensuite les mots sur un alphabet :
+On définit ensuite les mots sur un alphabet :
 
 #def(title: "Mot")[
   Un #imp[mot] sur l'alphabet $Sigma$ est une suite finie de lettres.
@@ -1696,7 +1826,7 @@ abbaababbab
 ababb
 ```
 
-La première erreur est au premier test (`b` $!=$ `a`), on cherche alors le dernier `a` du mot et on vient le coller sur le `a` qui a fait l'erreur. En cherchant le dernier, on s'assure de ne rater aucune possibilité (toutes les autres auraient échouées, au moins une fois sur ce caractère). Ainsi on cherche de la sorte :
+La première erreur est au premier test (`b` $!=$ `a`), on cherche alors le dernier `a` du mot et on vient le coller sur le `a` qui a fait l'erreur. En cherchant le dernier, on s'assure de ne rater aucune possibilité (toutes les autres auraient échoué, au moins une fois sur ce caractère). Ainsi on cherche de la sorte :
 
 ```
 abbaababbab
@@ -1793,7 +1923,7 @@ Dès que vous avez un problème, parlez-en à Coin Coin (Coin pour les intimes) 
 
 Discuter avec Coin Coin de cette manière permet en général de trouver votre problème. Même si dans certains cas vous #imp[pouvez court-circuiter le processus].
 
-=== Court-ciruiter au bon endroit
+=== Court-circuiter au bon endroit
  Quand votre code est long, ou que vous n'avez envie de tester qu'une partie précise, vous pouvez #imp[déterminer où est votre problème] sans raconter toute l'histoire à Coin Coin. Pour trouver ce qui fait planter votre programme vous pouvez utiliser des #imp[print] pour trouver la bonne ligne à étudier (ou la bonne fonction). L'idée est la suivante : Quand votre programme plante, il aura exécuté toutes les lignes avant celle qui a mis fin à l'exécution (du moins en Python) et donc le dernier print affiché sera le dernier avant le bug. Vous pouvez #imp[procéder par bloc] pour le trouver. Par exemple si on considère ce code :
 
  ```python
@@ -2020,175 +2150,693 @@ Des exercices plus compliqués sont à venir.
 = Corrections
 
 == Chapitre 1
-#corr(num:"1-1")[Garder en mémoire le maximum qui vaut intialement le premier élément. A chaque élément du tableau, le comparer au maximum en mémoire.]
+#corr(num:"1-1")[
+  On parcourt le tableau une fois en gardant le plus grand élément vu jusque-là. Si l'élément courant est plus grand, on met à jour. Complexité : $O(n)$.
+]
 
 #corr(num:"1-2")[
-  1. Toujours garder en mémoire l'élément précédent (au début le premier élément) et pour chaque élément, vérifier qu'il est $>=$ à celui en mémoire, puis le mettre en mémoire.
-  2. Faire de même avec $<=$ et $=$ et vérifier l'un des 3]
+  On parcourt la liste en comparant chaque élément au précédent. Pour distinguer les cas, on garde deux booléens : `croissante` et `decroissante`. Si les deux restent vrais, la suite est constante.
+]
 
-#corr(num:"1-3")[Lui ajouter un paramètre qu'on décroît de 1 à chaque fois, si il est nul alors on renvoie faux. Si l'algorithme termine avant on renvoie vrai]
+#corr(num:"1-3")[
+  On ajoute un compteur. À chaque appel récursif, on le diminue de 1. Si on atteint `b = 0` avant que le compteur tombe à 0, on renvoie `True`. Sinon, on renvoie `False`.
+]
 
-#corr(num:"1-6")[$O(|L|)$  ! Le 100000 est une constante]
+#corr(num:"1-4")[
+  On fait 5 courses de 5 chevaux. Puis on fait courir les 5 vainqueurs : le vainqueur est le meilleur cheval.
 
-#corr(num:"1-12")[1. $10^4$ 2. $(26*2)^14$ 3. On peut diviser par $26*2$]
+  Pour les places 2 et 3, seuls quelques chevaux peuvent encore convenir : ceux battus de près par les meilleurs groupes. On les met dans une dernière course. Total : 7 courses.
+]
+
+#corr(num:"1-5")[
+  Pour multiplier $A$ de taille $n times p$ par $B$ de taille $p times q$, on calcule chaque coefficient par
+  $C[i][j] = sum_(k=0)^(p-1) A[i][k] B[k][j]$.
+  On a donc trois boucles imbriquées : une sur $i$, une sur $j$, une sur $k$. La complexité est $O(n p q)$, et $O(n^3)$ dans le cas carré $n times n$.
+]
+
+#corr(num:"1-6")[
+  Si on parcourt une liste une fois, la complexité est $O(n)$, même si ici $n = 100000$. Le $O$ décrit la croissance quand la taille varie, pas la valeur précise de cet exemple.
+]
+
+#corr(num:"1-7")[
+  Au pire, chaque élément doit remonter tout le début du tableau. On fait donc environ $1 + 2 + ... + n$ comparaisons, soit $O(n^2)$. Si le tableau est déjà trié, c'est $O(n)$.
+]
+
+#corr(num:"1-9")[
+  On crée un tableau $T'$ de même taille que $T$, puis on pose $T'[i] = T[n-1-i]$ pour $0 <= i < n$. On peut aussi faire l'inversion en place en échangeant $T[i]$ et $T[n-1-i]$ pour $0 <= i < n/2$. Dans les deux cas, on parcourt un nombre linéaire de cases : $O(n)$.
+]
+
+#corr(num:"1-10")[
+  Pour lister les premiers jusqu'à $n$, on peut utiliser le crible : on barre les multiples de 2, puis de 3, puis de chaque nombre encore non barré.
+
+  Pour tester un seul nombre $m$, il suffit d'essayer les diviseurs jusqu'à $sqrt(m)$.
+]
+
+#corr(num:"1-11")[
+  La partie est finie si aucune case n'est vide. On parcourt donc toute la grille.
+
+  Pour vérifier la validité, on teste les lignes, les colonnes et les blocs. Pour une grille $N times N$, cela se fait en $O(N^2)$.
+]
+
+#corr(num:"1-12")[
+  Un code PIN à 4 chiffres donne $10^4$ possibilités.
+
+  Un mot de passe de 14 lettres avec majuscules/minuscules donne $52^14$ possibilités. Fixer une lettre divise le nombre de possibilités par 52.
+]
 
 #corr(num:"1-13")[
-  On fait un XOR. Ou si vous ne connaissez pas le XOR, on met 1 en mémoire, puis pour tout élément, si l'élément divise le nombre en mémoire on divise, sinon on multiplie par cet élément.
+  On fait le XOR de tous les nombres. Comme $x xor x = 0$ et $x xor 0 = x$, tous les nombres en double s'annulent. Il reste seulement le nombre unique. Complexité : $O(n)$ en temps, $O(1)$ en mémoire.
 ]
 
 == Chapitre 2 
 
 #corr(num:"2-1")[
-  1. Elle calcule le produit des nombres pairs entre $2$ et $n$
-  2. ```python
+  `mystere2(n)` multiplie les entiers pairs inférieurs ou égaux à $n$.
+  ```python
   def fact_pair(n):
-
-    if n==0: return 1
-    if n%2==1: return fact_pair(n-1)
-    return n * fact(n-2)
+      if n <= 1:
+          return 1
+      if n % 2 == 1:
+          return fact_pair(n - 1)
+      return n * fact_pair(n - 2)
   ```
-  3. On peut faire `fact(n)/mystere2(n)`
-  4. $O(n)$
+  Le produit des impairs vaut `fact(n) / fact_pair(n)`. Complexité : $O(n)$.
+]
+
+#corr(num:"2-2")[
+  On remplace le produit par une addition répétée. Pour $b >= 0$, on peut écrire :
+  ```python
+  def produit(a, b):
+      if b == 0:
+          return 0
+      return a + produit(a, b - 1)
+  ```
+  Si $b$ est négatif, on renvoie `-produit(a, -b)`. Le variant est $|b|$, qui décroît strictement. La complexité est $O(|b|)$.
 ]
 
 #corr(num:"2-3")[
-  1. ```python
+  Fibonacci récursif :
+  ```python
   def fib(n):
-  if n<=1: return n
-  return fib(n-1)+fib(n-2)
+      if n <= 1:
+          return n
+      return fib(n - 1) + fib(n - 2)
   ```
-  2. Ce sont les cas $n <= 1$. On le voit car il n'y a plus d'appel récursif.
-  3. $n$ décroît strictement à chaque appel, ce qui garantit la terminaison.
+  Les cas de base sont $0$ et $1$. Ensuite, les appels utilisent `n-1` et `n-2`, donc on finit par tomber sur un cas de base.
+]
+
+#corr(num:"2-4")[
+  L'algorithme compte combien de lancers il faut pour obtenir $n$ piles. Ce n'est pas une Bernoulli : le résultat n'est pas seulement 0 ou 1. En moyenne, il faut 2 lancers pour obtenir un pile, donc environ $2n$ lancers.
+]
+
+#corr(num:"2-5")[
+  Pour `fact(5)`, on empile `fact(5)`, `fact(4)`, `fact(3)`, `fact(2)`, `fact(1)`, puis on dépile en calculant successivement $1$, $2$, $6$, $24$, $120$.
+  Pour `fibo(5)`, l'appel se dédouble : `fibo(5)` appelle `fibo(4)` et `fibo(3)`, puis `fibo(4)` appelle `fibo(3)` et `fibo(2)`, etc. On recalcule plusieurs fois les mêmes valeurs (`fibo(3)`, `fibo(2)`, ...). Pour `fibo(10)`, l'arbre devient déjà pénible à écrire à la main ; c'est justement le signe de l'explosion exponentielle.
 ]
 
 #corr(num:"2-6")[
-  1. On créé un tableau de taille `n` et pour chaque `fib(k)`, si la case $k$ a déjà été remplie on renvoie sa valeur, sinon on calcule `fib(k)` avec `fib(k-1)` et `fib(k-2)` et on ajoute la valeur dans le tableau. Comme ça on calcule une seule fois chaque valeur de Fibonacci et on a une complexité linéaire.
-  2. L'idée est de faire `fib` qui renvoie le couple $(u_(n-1),u_n)$. Je vous laisse chercher avec cette indication.
+  Avec mémoïsation, on stocke `fib(k)` la première fois qu'on le calcule. Si on en a besoin plus tard, on lit le tableau au lieu de refaire tout l'arbre d'appels. Chaque valeur est calculée une seule fois : $O(n)$.
+
+  Autre idée : renvoyer directement le couple `(F(n-1), F(n))`, puis le transformer en `(F(n), F(n+1))`.
 ]
 
 #corr(num:"2-7")[
-  1. $O(n)$
-  2. Ça ne termine pas, on ne parle pas de complexité.
-  3. $O(max(t a b))$
-  4. $O(1)$
-  5. $O(n)$
+  1. Si on décrémente `n` jusqu'à 0, c'est $O(n)$.
+  2. Si l'appel fait `n+1`, on s'éloigne du cas d'arrêt : le programme ne termine pas.
+  3. Si on décrémente les cases d'un tableau, le coût dépend du nombre total de décréments.
+  4. Si on coupe en deux et qu'on garde une seule moitié : $O(log n)$.
+  5. Si on coupe en deux et qu'on traite les deux moitiés : $O(n)$.
+]
+
+#corr(num:"2-8")[
+  On trie deux moitiés puis on fusionne en temps linéaire. Chaque niveau coûte $O(n)$, et il y a $O(log n)$ niveaux. Donc le tri fusion est en $O(n log n)$.
+]
+
+#corr(num:"2-9")[
+  On peut écrire une fonction récursive `ligne(k, h)` qui affiche la ligne $k$ d'un sapin de hauteur $h$, puis appelle `ligne(k+1, h)`. La ligne $k$ contient $h-k$ espaces puis $2k+1$ étoiles. Le tronc est affiché après le cas terminal. Pour deux sapins côte à côte, on construit les chaînes de chaque ligne et on les concatène avec un espace fixe entre les deux.
+]
+
+#corr(num:"2-10")[
+  Le parchemin `coucou` se lit comme `c:(o:(u:(c:NULL):o):u)` selon l'encodage premier/milieu/dernier ; `bobob` donne `b:(o:(b:NULL):o):b`. Pour tester un palindrome, on compare `p.premiere` et `p.derniere`. Si elles sont différentes, on renvoie Faux ; si le parchemin est vide ou réduit à une lettre, on renvoie Vrai ; sinon on rappelle la fonction sur le parchemin intérieur.
+]
+
+#corr(num:"2-11")[
+  Pour un entier positif, on utilise le chiffre des unités :
+  ```python
+  def somme_chiffres(n):
+      if n < 10:
+          return n
+      return n % 10 + somme_chiffres(n // 10)
+  ```
+  Pour la deuxième question, on parcourt les entiers de 0 à 10000, on calcule `somme_chiffres(k)` et on garde ceux dont la somme est inférieure ou égale à $n$. Comme 10000 est une borne fixe, c'est constant dans ce problème ; si la borne était $M$, ce serait $O(M log M)$ en comptant le nombre de chiffres.
 ]
 
 #corr(num:"2-12")[
+  Le principe est de simuler une boucle infinie avec une fonction `while True` qui appelle une chaîne récursive pour afficher les nombres de $0$ à $n$ (fonction croissante), puis de $n$ à $1$ (fonction décroissante).
   ```python
-  def rebours_aux2(n):
-    print(n)
-    if n!=1: rebours_aux2(n-1)
+  def rebours_descendant(n):
+      print(n)
+      if n != 1:
+          rebours_descendant(n - 1)
 
-  def rebours_aux1(k,n):
-    print(k)
-    if k==n:  
-      rebours_aux2(n)
-    else:
-      rebours_aux1(k+1)
-    
+  def rebours_montant(k, n):
+      print(k)
+      if k == n:
+          rebours_descendant(n)
+      else:
+          rebours_montant(k + 1, n)
+
   def infinite(n):
-    while True:
-      rebours_aux1(0,n)  
+      while True:
+          rebours_montant(0, n)
   ```
 ]
 
-#corr(num:"2-14")[Obtenir par appel récursif les permutations de $[|1;n-1|]$ puis ajouter $n$ à toutes les positions dans toutes les permutations.]
+#corr(num:"2-13")[
+  On traite la matrice ligne par ligne. Pour une ligne, on écrit une fonction récursive `max_ligne(ligne, i)` qui renvoie le maximum à partir de l'indice $i$. Pour la matrice, une fonction récursive appelle `max_ligne` sur la première ligne puis se rappelle sur les lignes restantes. On obtient une liste de taille $n$, et chaque case de la matrice est lue une fois : complexité $O(n p)$.
+]
+
+#corr(num:"2-14")[
+  Pour générer les permutations de $[|1; n|]$, on génère d'abord celles de $[|1; n-1|]$, puis on insère $n$ à toutes les positions possibles. Le cas de base est `[[1]]`.
+]
+
+#corr(num:"2-15")[
+  L'algorithme naïf parcourt le tableau de gauche à droite : complexité $O(n)$. L'algorithme dichotomique compare $x$ à l'élément du milieu. Si $x$ est plus petit, on cherche dans la moitié gauche ; sinon dans la moitié droite. À chaque étape, la taille de recherche est divisée par 2, donc la complexité est $O(log n)$.
+]
+
+#corr(num:"2-16")[
+  Pour $n=9$, la procédure donne `1 2 3 4 5 6 7 8 9 -> 2 4 6 8 -> 2 6 -> 6`, donc le dernier élément est 6. Une implémentation simple simule la liste et alterne le sens d'élimination. Il existe aussi une récurrence sur la position restante, mais la simulation suffit ici et coûte $O(n)$ par reconstruction naïve de la liste.
+]
+
+#corr(num:"2-17")[
+  On utilise l'exponentiation rapide. Si $n=0$, on renvoie 1. Si $n<0$, on renvoie $1 / x^{-n}$. Si $n$ est pair, $x^n = (x^{n/2})^2$ ; sinon $x^n = x times x^{n-1}$. Cette méthode divise l'exposant par deux dès que possible, donc elle est en $O(log |n|)$.
+]
+
+#corr(num:"2-18")[
+  On lit la chaîne de gauche à droite en maintenant un accumulateur. Quand on lit un chiffre `c`, on remplace `res` par `10 * res + valeur(c)`. Il faut éventuellement traiter un signe `-` au début. La complexité est linéaire en la taille de la chaîne.
+]
 
 == Chapitre 3
 #corr(num:"3-1")[
-  1. Les tableaux sont optimaux car accès $O(1)$ et on connaît déjà la taille au début.
-  2. De même car on peut borner la taille et que c'est pas trop grand, donc un tableau est suffisant.
-  3. Les deux sont possibles, si c'est un très gros site c'est un peu compliqué de borner donc préférer des listes (mais en pratique ce sera une base de donnée)
-  4. Je sais pas pourquoi j'ai mis cette question, surtout que les deux sont utiles.
-  5. On peut borner la taille et c'est acceptable donc tableau.
+  1. Taille connue et accès par indice : tableau.
+  2. Nombre de connexions borné à l'avance : tableau de taille suffisante.
+  3. Nombre de connexions difficile à borner : liste chaînée ou tableau dynamique.
+  4. Nombre de mesures connu : tableau.
 ]
 
-#corr(num:"3-3")[Accès $O(1)$]
+#corr(num:"3-2")[
+  Si on agrandit d'une seule case à chaque ajout, on recopie trop souvent : au total, cela donne $O(n^2)$.
+
+  Si on double la taille, les grosses recopies sont rares. Sur beaucoup d'ajouts, `append` coûte $O(1)$ en moyenne.
+]
+
+#corr(num:"3-3")[
+  L'inconvénient majeur d'une liste chaînée classique est l'impossibilité d'accéder au $i$-ème élément en temps constant. Contrairement à un tableau où l'accès se fait instantanément en $O(1)$, la liste impose de parcourir chaque élément depuis le début, ce qui donne un temps d'accès en $O(i)$ (soit $O(n)$ dans le pire des cas).
+]
 
 #corr(num:"3-4")[
+  Voici une implémentation fonctionnelle (récursive) pour trouver le maximum d'une liste chaînée :
+  ```python
+  def maxi(a, b):
+      if a >= b: 
+          return a
+      return b
+
+  def max_liste(l):
+      if est_vide(l):
+          raise ValueError("La liste est vide")
+      if un_seul_element(l):
+          return element_actuel(l)
+      # On compare l'élément actuel avec le maximum du reste de la liste
+      return maxi(element_actuel(l), max_liste(suite(l)))
   ```
-  def maxi(a,b):
-    if a>=b: 
-      return a
-    return b
-  def max(l):
-    if un_seul_element(l): return seul_element(l)
-    if vide(l): ERREUR
-    return maxi(element_act(l),max(suite(l)))
+]
+
+#corr(num:"3-5")[
+  L'accès `truc[i]` est typique d'un tableau : il demande un accès direct à l'indice $i$ en $O(1)$. Les méthodes `append` et `pop` de Python correspondent à un tableau dynamique : l'ajout et la suppression en fin de tableau sont efficaces, avec un coût amorti constant pour `append`.
+
+  Pour une liste chaînée, les opérations naturelles sont plutôt `ajouter_en_tete`, `tete` et `suite`. Accéder au $i$-ème élément impose de suivre les pointeurs un par un.
+]
+
+#corr(num:"3-6")[
+  Pour un tableau, on inverse en place avec deux indices `i` et `j` : on échange `tab[i]` et `tab[j]`, puis on avance `i` et on recule `j` jusqu'à ce qu'ils se croisent. La complexité est $O(n)$ et la mémoire supplémentaire est $O(1)$.
+
+  Pour une liste chaînée, on peut construire récursivement une nouvelle liste inversée avec un accumulateur :
+  ```python
+  def inverse(liste):
+      def aux(l, acc):
+          if est_vide(l):
+              return acc
+          return aux(suite(l), ajoute_en_tete(tete(l), acc))
+      return aux(liste, liste_vide())
   ```
+]
+
+#corr(num:"3-7")[
+  La concaténation récursive de deux listes chaînées recopie la première liste et réutilise la seconde :
+  ```python
+  def concat(l1, l2):
+      if est_vide(l1):
+          return l2
+      return ajoute_en_tete(tete(l1), concat(suite(l1), l2))
+  ```
+  La complexité est $O(n)$ où $n$ est la taille de `l1`.
+]
+
+#corr(num:"3-8")[
+  Si les données sont triées et que l'on fait beaucoup de recherches, un tableau est le bon choix : il permet une recherche dichotomique en $O(log n)$. Si l'on fait surtout des ajouts et suppressions près de la tête, sans accès aléatoire, une liste chaînée est plus naturelle. Dans la plupart des situations pratiques, le tableau dynamique reste le choix par défaut, car il combine accès direct et ajouts efficaces en fin de structure.
 ]
 
 == Chapitre 4
+#corr(num:"4-1")[
+  On prouve par récurrence que tout entier naturel possède une écriture binaire. Pour $0$, l'écriture est `0`. Pour $n > 0$, on divise $n$ par 2 : $n = 2q + r$ avec $r in {0, 1}$. Par hypothèse de récurrence, $q$ possède une écriture binaire ; en ajoutant le bit $r$ à droite, on obtient l'écriture binaire de $n$.
+]
+
+#corr(num:"4-2")[
+  L'unicité vient de l'unicité de la division euclidienne. Le dernier bit d'un entier donne son reste modulo 2. Une fois ce bit retiré, il reste le quotient par 2. En répétant l'argument, tous les bits sont forcés un par un : deux écritures binaires différentes ne peuvent donc pas représenter le même entier.
+]
+
+#corr(num:"4-3")[
+  Quelques conversions :
+  - $72 = 1001000_2$
+  - $89 = 1011001_2$
+  - $1 = 1_2$
+  - $0 = 0_2$
+  - $987 = 1111011011_2$
+  - $2946654722 = 10101111101000100110001000000010_2$
+]
+
+#corr(num:"4-4")[
+  On additionne colonne par colonne, avec retenue :
+  ```text
+    11001
+  + 00011
+  = 11100
+  ```
+]
+
+#corr(num:"4-5")[
+  En complément à deux, inverser tous les bits de l'écriture de $p$ ne donne pas $-p$, mais $-(p+1)$. C'est pour cela qu'il faut ajouter 1 après l'inversion : on obtient alors exactement la représentation de $-p$.
+]
+
+#corr(num:"4-6")[
+  Sur 5 bits, `10011 + 01010 = 11101`. Sur 4 bits, `1000 + 0001 = 1001`. On a aussi `1111 - 1111 = 0000` et `1111 - 1110 = 0001`.
+
+  Pour soustraire proprement des nombres signés, il faut étendre le signe avant de changer de taille. Par exemple, `1001` sur 4 bits devient `111001` sur 6 bits, et `1000` devient `111000`. On obtient alors `111001 - 111000 = 000001`.
+]
+
+#corr(num:"4-7")[
+  Avec le format simplifié de l'exercice :
+  - `11001001`, avec $k=3$, vaut $-1.1001_2 times 2^1 = -3.125$.
+  - `00000001`, avec $k=4$, vaut $1.001_2 times 2^(-7)$.
+  - `101010101`, avec $k=3$, vaut $-1.10101_2 times 2^(-1) = -0.828125$.
+
+  L'idée importante est de séparer le bit de signe, l'exposant biaisé, puis la mantisse.
+]
+
+#corr(num:"4-8")[
+  Un décalage à gauche de $k$ positions multiplie par $2^k$ tant qu'il n'y a pas de dépassement de capacité. Un décalage à droite divise par $2^k$ avec perte des bits de poids faible. Pour des entiers signés, il faut distinguer le décalage logique et le décalage arithmétique, qui conserve le bit de signe.
+]
+
+#corr(num:"4-9")[
+  Le XOR bit à bit renvoie 1 exactement quand les deux bits sont différents. Par exemple :
+  ```text
+    101101
+  ^ 011010
+  = 110111
+  ```
+  Attention : avec seulement XOR et NOT, on ne peut pas reconstruire AND ou OR. Ces deux opérations ne sont pas des fonctions affines des bits, alors que toute expression construite uniquement avec XOR, NOT et des constantes l'est.
+]
+
+#corr(num:"4-10")[
+  Le XORShift maintient un état entier et le mélange avec des décalages et des XOR. Le résultat est déterministe : à graine identique, on obtient toujours la même suite. Il ne faut donc pas le confondre avec du hasard mathématique. Son intérêt est d'être très rapide et d'avoir de bonnes propriétés pratiques pour des simulations simples, mais ce n'est pas un générateur cryptographique.
+]
+
+#corr(num:"4-11")[
+  Pour additionner deux bits $a$ et $b$, le bit de somme vaut $a xor b$ et la retenue vaut $a and b$. Un additionneur complet ajoute aussi une retenue entrante $c$ :
+  - somme : $a xor b xor c$
+  - retenue sortante : $(a and b) or (c and (a xor b))$
+
+  En chaînant ces additionneurs complets de droite à gauche, on construit un additionneur binaire sur plusieurs bits.
+]
+
 == Chapitre 5
 #corr(num:"5-1")[
-  Cas de base: Liste vide. Constructeur: $::$
+  Les deux composants fondamentaux pour définir une liste chaînée par induction sont :
+  - *Le cas de base* : La liste vide (souvent notée `[]` ou `Nil`).
+  - *Le constructeur (l'induction)* : L'opérateur d'ajout en tête (souvent noté `::` ou `Cons`). Il prend un élément $x$ et une liste existante $L$, et construit une nouvelle liste contenant $x$ suivi des éléments de $L$.
 ]
 
 #corr(num:"5-2")[
-  Cas de base: Arbre vide, Feuille. Constructeur: Noeud
+  Pour construire un arbre binaire par induction :
+  - *Le cas de base* : L'arbre vide (ou la simple Feuille sans enfants, selon la modélisation choisie).
+  - *Le constructeur* : Le "Noeud". Il prend une valeur (l'étiquette), un arbre binaire (le sous-arbre gauche) et un autre arbre binaire (le sous-arbre droit) pour fusionner le tout en un nouvel arbre binaire.
 ]
 
 #corr(num:"5-4")[
-  1. $h+1 <= n <= 2^(h+1) - 1 $. Pour cela considérer le pire cas et le meilleur cas (que 1 fils / que 2 fils)
-  2. Ça sera fait en prépa.
+  Si l'arbre est une simple chaîne, une hauteur $h$ donne $h+1$ noeuds.
+
+  Si l'arbre est complet, on a $1 + 2 + 4 + ... + 2^h = 2^(h+1)-1$ noeuds. Donc $h + 1 <= n <= 2^(h+1)-1$.
+]
+
+#corr(num:"5-3")[
+  La preuve se fait par induction structurelle sur l'arbre. Pour l'arbre vide, la propriété est immédiate. Pour un noeud, on suppose la propriété vraie pour les sous-arbres gauche et droit, puis on combine ces deux hypothèses avec la racine. C'est exactement le schéma de preuve adapté aux objets définis récursivement.
+]
+
+#corr(num:"5-5")[
+  On peut construire tout parchemin par récurrence sur la longueur du mot. Le mot vide est le cas de base. Pour un mot non vide, on retire sa première lettre et sa dernière lettre, puis on applique l'hypothèse de récurrence au mot restant. En ajoutant ensuite ces deux lettres autour du parchemin obtenu, on reconstruit le mot initial.
+]
+
+#corr(num:"5-6")[
+  Pour transformer un tableau en liste chaînée, on parcourt le tableau de droite à gauche et on ajoute chaque élément en tête. Pour transformer une liste chaînée en tableau, on parcourt la liste de gauche à droite et on ajoute les éléments dans un tableau dynamique. Dans les deux cas, chaque élément est lu une seule fois : complexité $O(n)$.
+]
+
+#corr(num:"5-7")[
+  Les parcours préfixe, infixe et postfixe visitent exactement les mêmes noeuds ; seul l'ordre change. La preuve est encore structurelle : pour un arbre vide, il n'y a rien à visiter. Pour un noeud, chaque parcours visite la racine et applique récursivement le même principe aux deux sous-arbres.
+]
+
+#corr(num:"5-8")[
+  Dans un ABR, les petits éléments sont à gauche et les grands à droite. Le minimum est tout à gauche ; le maximum tout à droite.
+
+  Une recherche descend d'un niveau à chaque comparaison, donc elle coûte $O(h)$ : $O(log n)$ si l'arbre est équilibré, $O(n)$ au pire.
+]
+
+#corr(num:"5-9")[
+  Dans un tas en tableau, les enfants de `i` sont `2*i+1` et `2*i+2`. Le parent est `(i-1)//2`.
+
+  Pour supprimer la racine, on la remplace par le dernier élément puis on le fait redescendre. Le tri par tas répète cette opération : $O(n log n)$.
+]
+
+#corr(num:"5-10")[
+  Un arbre arithmétique met les entiers aux feuilles et les opérations aux noeuds internes. Par exemple, `1 + (2 * 3) * 4 - 7` peut être représenté par :
+  ```text
+  Moins(
+    Plus(Entier(1), Produit(Produit(Entier(2), Entier(3)), Entier(4))),
+    Entier(7)
+  )
+  ```
+  L'arbre rend les priorités et les parenthèses explicites. L'évaluation se fait récursivement : on évalue les fils, puis on applique l'opération portée par la racine.
 ]
 
 #corr(num:"5-11")[
-  J'ai dérapé, ne pas traiter.
+  Si $A_n$ désigne le nombre d'arbres binaires ordonnés à $n$ noeuds, alors $A_0 = 1$ et
+  $A_n = sum_(g=0)^(n-1) A_g A_(n-1-g)$.
+  On choisit la taille $g$ du sous-arbre gauche ; le sous-arbre droit contient alors $n-1-g$ noeuds. Ce sont les nombres de Catalan : $A_n = 1/(n+1) binom(2n,n)$.
+]
+
+#corr(num:"5-12")[
+  Un petit interpréteur suit trois étapes : découper le texte en jetons, construire un arbre syntaxique, puis évaluer cet arbre. Une méthode simple est l'analyse récursive descendante avec une fonction pour les expressions, une pour les produits, et une pour les atomes. Cette séparation gère naturellement les priorités entre `+`, `-`, `*`, `/` et les parenthèses.
 ]
 
 == Chapitre 6
 
 #corr(num:"6-1")[
-  On fait deux cas: Celui dans lequel on prend l'objet et celui dans lequel on ne le prend pas. Et on fait un appel récursif dessus (toujours en considérant l'objet $k$, pour permettre de le prendre plusieurs fois. De toute façon vu qu'on a une limite de poids on ne va jamais tourner à l'infini tant que l'objet n'a pas de poids 0 et s'il a un poids 0 il n'y a pas de solutions car la solution c'est $infinity$)
+  À chaque objet, on essaie deux choix : le prendre ou ne pas le prendre. Si on le prend, la capacité restante diminue. On s'arrête quand il n'y a plus de place ou plus d'objet à tester.
+
+  Si un objet a un poids 0 et une valeur positive, le problème devient bizarre : on pourrait le prendre infiniment.
+]
+
+#corr(num:"6-2")[
+  Pour la version 0/1 du sac à dos, on pose `dp[i][p]` égal à la meilleure valeur obtenue avec les $i$ premiers objets et une capacité $p$. Si `w_i <= p`, la transition est `dp[i][p] = max(dp[i-1][p], v_i + dp[i-1][p - w_i])`. Sinon, `dp[i][p] = dp[i-1][p]`. La complexité est $O(n P)$.
+]
+
+#corr(num:"6-3")[
+  Pour la plus longue sous-suite commune, on note `dp[i][j]` la réponse pour les préfixes de tailles $i$ et $j$. Si les derniers caractères sont égaux, `dp[i][j] = 1 + dp[i-1][j-1]`. Sinon, `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`. La table se remplit en $O(n m)$.
+]
+
+#corr(num:"6-4")[
+  Si on peut monter une ou deux marches à chaque fois, le nombre de façons d'atteindre la marche $n$ vérifie $f(0)=1$, $f(1)=1$, puis $f(n)=f(n-1)+f(n-2)$. Une programmation dynamique calcule les valeurs dans l'ordre en $O(n)$.
+]
+
+#corr(num:"6-5")[
+  Pour l'escalier à coûts, on pose `dp[i]` égal au coût minimal d'un chemin qui arrive sur la marche `i`. La transition est `dp[i] = cout[i] + min(dp[i-1], dp[i-2])`. La réponse est le minimum des deux dernières positions possibles selon la convention de l'énoncé.
+]
+
+#corr(num:"6-6")[
+  Le triangle de Pascal repose sur la relation $binom(n,k) = binom(n-1,k-1) + binom(n-1,k)$, avec des 1 sur les bords. On remplit donc le tableau ligne par ligne, chaque case intérieure étant la somme des deux cases situées au-dessus.
+]
+
+#corr(num:"6-7")[
+  Pour le jeu où deux joueurs prennent une extrémité du tableau, on peut stocker l'avantage du joueur courant sur l'intervalle `[i, j]` :
+  `dp[i][j] = max(tab[i] - dp[i+1][j], tab[j] - dp[i][j-1])`.
+  Le premier joueur peut garantir au moins l'égalité si `dp[0][n-1] >= 0`.
+]
+
+#corr(num:"6-8")[
+  Le nombre de parenthésages corrects avec $n$ paires de parenthèses vérifie la récurrence de Catalan :
+  `dp[0] = 1` et `dp[n] = sum(dp[k] * dp[n-1-k])` pour $0 <= k < n$.
+  On choisit combien de paires sont placées à l'intérieur de la première paire ouvrante.
+]
+
+#corr(num:"6-9")[
+  Pour la distance de Levenshtein, `dp[i][j]` est le coût minimal pour transformer le préfixe de taille $i$ du premier mot en préfixe de taille $j$ du second. Suppression, insertion et substitution donnent :
+  `dp[i][j] = min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + cout)`,
+  où `cout` vaut 0 si les deux lettres finales sont égales, 1 sinon.
+]
+
+#corr(num:"6-10")[
+  Pour le piège à eau, on pré-calcule pour chaque position la plus grande hauteur vue à gauche et la plus grande hauteur vue à droite. L'eau stockée en `i` vaut alors `max(0, min(gauche[i], droite[i]) - hauteur[i])`. Deux parcours suffisent pour les maxima, puis un dernier pour sommer : complexité $O(n)$.
 ]
 
 == Chapitre 7
 
+#corr(num:"7-1")[
+  La force brute consiste à générer tous les mots possibles de longueur 8 sur l'alphabet autorisé, puis à tester chaque candidat. Sans connaître la longueur exacte, on génère les mots de longueur 0, puis 1, puis 2, jusqu'à 8. C'est une méthode exponentielle : elle est simple et correcte, mais très vite inutilisable quand l'alphabet ou la longueur augmente.
+]
+
+#corr(num:"7-2")[
+  On peut placer une reine par ligne : deux reines sur la même ligne s'attaqueraient immédiatement, et il faut placer $n$ reines sur $n$ lignes.
+
+  Si $x_i$ est la colonne de la reine de la ligne $i$, il y a conflit si deux colonnes sont égales ou si deux reines sont sur une même diagonale. Le retour sur trace coupe dès qu'un conflit apparaît. Pour aller vite, on garde trois tableaux : colonnes, diagonales `ligne + colonne`, diagonales `ligne - colonne`.
+]
+
+#corr(num:"7-3")[
+  Pour résoudre un sudoku par retour sur trace, on choisit une case vide, on essaie chaque chiffre possible, puis on vérifie que la grille partielle reste valide. Si oui, on continue récursivement ; si l'appel échoue, on annule le choix et on essaie un autre chiffre. La récursion s'arrête quand il n'y a plus de case vide.
+]
+
+#corr(num:"7-4")[
+  Une solution partielle est la liste des cases déjà visitées. Un coup est autorisé s'il reste dans l'échiquier et arrive sur une case jamais visitée.
+
+  On essaie les coups récursivement. Si on bloque, on retire le dernier coup et on en essaie un autre.
+]
+
 == Chapitre 8
 
 #corr(num:"8-1")[
-  Si un chemin de $u$ à $v$ passe deux fois par une même arête, on peut simplement retirer tout ce qui fait entrer les deux passages dans l'arête et on aura toujours un chemin de $u$ à $v$
+  Si un chemin reliant le sommet $u$ au sommet $v$ emprunte deux fois la même arête $e$, cela signifie qu'il a effectué une "boucle" (ou cycle) entre son premier passage par $e$ et son second passage. Pour obtenir un chemin valide (et même plus court), il suffit de supprimer toute la sous-séquence du parcours comprise entre le premier passage et le second. Le chemin obtenu reliera toujours $u$ à $v$ en évitant ce détour inutile.
 ]
 
 #corr(num:"8-2")[
-  `7,8` et `6,5,4,1,2,3`
+  Le graphe de la figure a deux composantes connexes :
+  - `{1, 2, 3, 4, 5, 6}`
+  - `{7, 8}`
+
+  Dans la première composante, chaque sommet est relié aux autres par une suite d'arêtes. Les sommets 7 et 8 forment une composante séparée, sans arête vers le reste du graphe.
 ]
 
 #corr(num:"8-3")[
-  Non ! Un cycle est un chemin #imp[simple] et la l'arête $\{i,j\}$ est utilisée deux fois.
+  Non, la définition stricte d'un cycle exige que ce soit un chemin *simple*, c'est-à-dire qu'aucune arête ne soit empruntée plus d'une fois. Dans l'exemple donné, l'arête reliant les sommets $i$ et $j$ est empruntée pour faire l'aller-retour. Cela forme un chemin fermé, mais pas un cycle au sens strict de la théorie des graphes !
 ]
 
 #corr(num:"8-4")[
-  $(5,4,1,2,3)$ (ou tout cycle équivalent)
+  Un exemple de cycle présent dans ce graphe est `(4, 1, 2, 3, 5, 4)`. On revient bien au sommet de départ sans réutiliser d'arête. Toute rotation de ce cycle, ou le même cycle parcouru dans l'autre sens, convient aussi.
 ]
 
-#corr(num:"8-5")[Todo, elle est importante celle-là]
+#corr(num:"8-5")[
+  Pour le graphe de la figure du cycle, une matrice d'adjacence possible est :
+  ```text
+      1 2 3 4 5
+  1   0 1 0 1 0
+  2   1 0 1 0 0
+  3   0 1 0 0 1
+  4   1 0 0 0 1
+  5   0 0 1 1 0
+  ```
+
+  Pour le graphe d'amitiés, une liste d'adjacence est souvent plus lisible :
+  ```text
+  Alice:  Bob, Diane
+  Bob:    Alice, Chloe, Diane
+  Chloe:  Bob, Diane
+  Diane:  Alice, Bob, Chloe
+  ```
+]
+
+#corr(num:"8-6")[
+  L'ensemble `visite` évite de traiter plusieurs fois le même sommet. Sans lui, un parcours en profondeur peut boucler indéfiniment dans un cycle, par exemple en alternant entre deux sommets voisins. Avec `visite`, chaque sommet est exploré au plus une fois.
+]
+
+#corr(num:"8-7")[
+  Dans un graphe non orienté, un parcours en profondeur lancé depuis un sommet $s$ visite exactement la composante connexe de $s$. Tout sommet visité est évidemment relié à $s$ par le chemin suivi par l'algorithme. Réciproquement, si un sommet est relié à $s$ par un chemin, le DFS finit par suivre les arêtes de ce chemin, sauf si le sommet a déjà été vu, ce qui suffit aussi.
+]
+
+#corr(num:"8-8")[
+  Avec une liste d'adjacence, on parcourt directement les voisins de chaque sommet. Le parcours DFS coûte $O(n + m)$, où $n$ est le nombre de sommets et $m$ le nombre d'arêtes. Avec une matrice d'adjacence, tester une arête est en $O(1)$, mais chercher tous les voisins d'un sommet coûte $O(n)$, donc un DFS complet coûte $O(n^2)$.
+]
 
 #corr(num:"8-9")[
-  Oui ! Car l'arête $(i,j)$ est cette-fois différente de celle $(j,i)$ (différence ensemble / couple, au programme de terminale et première)
+  Oui ! Dans un graphe *orienté*, une arête allant de $i$ vers $j$ (notée $(i, j)$ sous forme de couple ordonné) est fondamentalement différente de l'arête allant de $j$ vers $i$ (notée $(j, i)$). Il est donc tout à fait possible d'avoir un aller et un retour distincts. En revanche, dans un graphe *non orienté*, on utilise des ensembles $\{i, j\}$ où l'ordre n'a pas d'importance, et $\{i, j\} = \{j, i\}$.
+]
+
+#corr(num:"8-10")[
+  Dans un graphe orienté, un DFS ne suit que les arcs sortants du sommet courant. Il ne peut donc pas remonter une arête dans le sens inverse, sauf si l'arc inverse existe explicitement. C'est la différence essentielle avec les graphes non orientés.
+]
+
+#corr(num:"8-11")[
+  Dans un graphe non orienté, on détecte un cycle si, pendant le DFS, on trouve un voisin déjà visité qui n'est pas le parent du sommet courant. Dans un graphe orienté, on utilise trois couleurs : blanc, gris, noir. Rencontrer un sommet gris signifie qu'on a trouvé un cycle orienté.
+]
+
+#corr(num:"8-12")[
+  Deux sommets sont dans la même composante fortement connexe s'ils sont accessibles l'un depuis l'autre. Une méthode simple consiste à calculer les sommets atteignables depuis chaque sommet, puis à regrouper ceux qui se rejoignent mutuellement. C'est correct mais coûteux. Les algorithmes de Kosaraju et Tarjan font le même travail en temps linéaire $O(n + m)$.
+]
+
+#corr(num:"8-13")[
+  L'arbre de parcours en profondeur est bien un arbre : chaque sommet découvert, sauf la racine, reçoit un unique parent, celui depuis lequel il est découvert pour la première fois. L'arbre dépend de l'ordre de départ et de l'ordre des voisins. Avec un ordre fixé, le résultat est déterministe.
+]
+
+#corr(num:"8-14")[
+  Dans un graphe non connexe, la connectivité vaut 0. Dans le graphe complet $K_n$, il faut supprimer $n-1$ sommets pour isoler le dernier, donc la connectivité vaut $n-1$. Un arbre non réduit à un sommet a connectivité 1 dès qu'il possède un sommet d'articulation ; un cycle simple a connectivité 2.
+]
+
+#corr(num:"8-15")[
+  Un graphe est biparti si on peut colorier ses sommets avec deux couleurs de sorte que chaque arête relie deux couleurs différentes. Un triangle n'est pas biparti. Un parcours BFS permet de tester la propriété : on colore la racine, puis chaque voisin avec la couleur opposée. Si une arête relie deux sommets de même couleur, le graphe n'est pas biparti.
+]
+
+#corr(num:"8-16")[
+  Prenons un plus long chemin simple d'un arbre. Si une extrémité avait un voisin qui n'est pas déjà dans le chemin, on pourrait prolonger le chemin, contradiction. Si tous ses voisins étaient déjà dans le chemin, on créerait un cycle, impossible dans un arbre. Les deux extrémités sont donc des feuilles, c'est-à-dire des sommets de degré 1.
+]
+
+#corr(num:"8-17")[
+  A contient un triangle, donc il faut au moins 3 couleurs, et 3 suffisent : $chi(A) = 3$.
+
+  B contient aussi un triangle, et 3 couleurs suffisent : $chi(B) = 3$.
+
+  C est complet à 5 sommets, donc $chi(C) = 5$.
+]
+
+#corr(num:"8-18")[
+  Le coloriage le plus simple qui marche toujours consiste à donner une couleur différente à chaque sommet. Il est toujours valide, mais presque jamais optimal : un graphe sans aucune arête peut être colorié avec une seule couleur.
+]
+
+#corr(num:"8-19")[
+  Si un sommet a $k$ voisins déjà coloriés, au plus $k$ couleurs sont interdites. Il reste donc une couleur parmi les $k+1$ premières.
+
+  On obtient $chi(G) <= Delta(G) + 1$. C'est exact pour les graphes complets, mais très mauvais pour une étoile : deux couleurs suffisent.
+]
+
+#corr(num:"8-20")[
+  `reset` parcourt les étiquettes et met tout à `-1`. `marque` met l'étiquette du sommet choisi à `0`.
+
+  Pour calculer les distances, on lance un BFS depuis tous les sommets marqués en même temps. Les voisins non vus prennent la distance précédente + 1.
+]
+
+#corr(num:"8-21")[
+  Depuis le départ, on garde les voisins de distance minimale et on explore toutes ces possibilités. Le marquage est parfait si l'ensemble obtenu est seulement `{sortie}`.
+
+  Marquer tous les sommets ne marche pas forcément : tous les voisins auraient alors distance 0, donc l'algorithme ne serait pas guidé vers la sortie.
 ]
 
 == Chapitre 9
+
+#corr(num:"9-1")[
+  La recherche naïve teste chaque position possible du texte, puis compare le motif caractère par caractère. Pour un texte de taille $n$ et un motif de taille $m$, la complexité est $O((n-m+1)m)$ dans le pire cas. Pour compter les occurrences, on continue simplement la recherche après chaque position testée.
+]
+
+#corr(num:"9-2")[
+  Le pré-calcul de Boyer-Moore-Horspool associe à chaque caractère sa dernière position utile dans le motif, ou `-1` s'il n'apparaît pas. On initialise donc une table avec `-1`, puis on parcourt le motif de gauche à droite en écrasant la valeur associée au caractère courant.
+]
+
+#corr(num:"9-3")[
+  Lors d'un échec de comparaison sur un caractère `y` du texte, la table indique le dernier endroit où `y` peut raisonnablement s'aligner dans le motif. Si `y` n'apparaît pas, on peut sauter tout le motif. S'il apparaît, on décale assez pour aligner cette occurrence avec `y`. Cela ne rate aucune occurrence, car tout alignement intermédiaire placerait forcément un mauvais caractère face à `y`.
+]
+
+#corr(num:"9-4")[
+  À la main, l'algorithme décale le motif tant que le dernier caractère aligné ne correspond pas. Sur une phrase contenant `Harry`, le motif `Harry` finit par s'aligner exactement. Le même principe trouve `Python` après les guillemets, `OCAML` à la fin de la phrase, et les deux occurrences de `Bary` dans `Barycentre de Bary`.
+]
+
+#corr(num:"9-5")[
+  Une implémentation de Boyer-Moore-Horspool compare le motif de droite à gauche. En cas d'échec, elle décale selon le caractère du texte aligné avec le dernier caractère du motif. Le pré-calcul coûte $O(m)$, puis la recherche est souvent sous-linéaire en pratique, même si le pire cas reste quadratique pour cette variante simplifiée.
+]
+
 == Chapitre 10
+
 #corr(num:"10-1")[
-  L'erreur à débuguer est le fait que ce soit `tab[j][i]`, je laisse Coin-Coin vous expliquer pourquoi.
+  Le bug vient de l'inversion des indices : une matrice Python s'accède avec `tab[ligne][colonne]`. Si `i` est la ligne et `j` la colonne, il faut écrire `tab[i][j]`, pas `tab[j][i]`.
 ]
+
 #corr(num:"10-2")[
-  L'erreur à débuguer est l'oubli de cas de base je laisse Coin-Coin vous expliquer pourquoi.
+  Il manque le cas de base. Sans `if n <= 1: return 1`, la fonction continue à s'appeler avec des valeurs de plus en plus petites et finit en `RecursionError`.
 ]
-= Crédits
 
-Auteur : Clément ROUVROY (https://crvr.fr/)
+#corr(num:"10-3")[
+  L'algorithme de tri par pile maintient une pile auxiliaire triée. Quand l'élément courant est plus petit que le sommet de la pile triée, on remet temporairement les éléments trop grands dans la pile d'origine, on insère l'élément, puis on continuera à retraiter les éléments déplacés. L'invariant est que la pile auxiliaire reste triée. Dans le pire cas, chaque élément peut provoquer beaucoup de déplacements : complexité $O(n^2)$.
+]
 
-Merci à Wyrdix, Grégoire, et aux terminales qui ont proposé des exercices supplémentaires pour le polycopié et des retouches sur le cours.
+#corr(num:"10-4")[
+  Il faut éviter de déréférencer `NULL` et bien mettre à jour les deux sens. Pour insérer en tête : `new->left = NULL`, `new->right = l`, puis si `l != NULL`, `l->left = new`. Pour libérer, on garde le suivant avant `free`.
+]
 
-Merci à Milan d'avoir mis à jour la template Typst et d'avoir corrigé quelques fautes de français dans le document.
+#corr(num:"10-5")[
+  Les pointeurs doivent toujours désigner une zone valide avant d'être déréférencés. Il faut donc initialiser un pointeur avec l'adresse d'une variable existante ou avec un `malloc` réussi, tester `NULL` si nécessaire, et respecter les bornes des tableaux. Une boucle qui écrit dans un tableau de taille 5 doit par exemple utiliser `i < 5`, pas `i <= 5`.
+]
 
-Merci aux terminales qui ont relu le polycopié et permis de mieux calibrer les exercices / le nombre d'étoiles.
+== Chapitre 11
 
-Merci à tous ceux qui m'enverront des exercices à mettre dans les versions prochaines.
-#imp[Licence] Avant la MP2I © 2023 by cr-dev.io is licensed under CC BY-NC 4.0
-  
+#corr(num:"11-1")[
+  Il y a $n!$ ordres possibles pour $n$ éléments. Une comparaison donne seulement deux réponses possibles, donc elle coupe au mieux les possibilités en deux.
+
+  Il faut donc assez de comparaisons pour distinguer $n!$ cas. Cela donne une borne en $Omega(n log n)$ pour les tris par comparaison.
+]
+
+#corr(num:"11-2")[
+  On peut représenter chaque personne par son intervalle de présence à la mairie. Deux personnes qui se croisent donnent deux intervalles qui se chevauchent.
+
+  La personne passée deux fois correspond en fait à deux intervalles. C'est elle qui peut créer une forme impossible pour de vrais intervalles simples.
+]
+
+#corr(num:"11-3")[
+  Si les listes sont déjà triées, on les fusionne au lieu de tout retrier. On peut le faire deux listes par deux, comme dans le tri fusion.
+
+  Si les notes sont des entiers entre 0 et 100, on peut aussi compter combien de fois chaque note apparaît avec un tableau de taille 101.
+]
+
+#corr(num:"11-4")[
+  On garde un seul élément en mémoire. Le premier est gardé. Quand on voit le $k$-ième élément, on le garde avec probabilité $1/k$.
+
+  À la fin, chaque élément a la même probabilité d'être celui qui reste.
+]
+
+#corr(num:"11-5")[
+  Solution simple : trier la liste puis prendre l'élément d'indice $k-1$. Coût : $O(n log n)$.
+
+  Mieux : QuickSelect choisit un pivot, sépare petits et grands, puis continue seulement du côté où se trouve le $k$-ième élément.
+]
+
+#corr(num:"11-6")[
+  (Génération des permutations). Pour générer les mots sans se soucier des doublons (par exemple pour "bob", afficher 2 fois "bob" à cause des deux "b"), la méthode est de raisonner sur les indices (comme pour le mot "123"). On génère d'abord l'ensemble de toutes les permutations des indices allant de 1 à $N$ en utilisant l'algorithme récursif de l'exercice 2-14. Ensuite, pour chaque permutation d'indice, on reconstruit le mot en plaçant les lettres correspondantes.
+]
+
+= Crédits et remerciements
+
+#block(
+  width: 100%,
+  fill: gray.lighten(96%),
+  radius: 4pt,
+  stroke: 1pt + gray.lighten(70%),
+  inset: (top: 0.9em, bottom: 0.9em, x: 1em),
+)[
+  #set par(leading: 0.65em, spacing: 0.9em)
+
+  #text(fill: blue.darken(40%), weight: "bold", font: "Playfair Display")[Auteur] \
+  Clément Rouvroy — #link("https://crvr.fr")[crvr.fr]
+
+
+  #text(fill: blue.darken(40%), weight: "bold", font: "Playfair Display")[Remerciements] \
+  Merci à Wyrdix, Grégoire, Milan, ainsi qu'aux terminales qui ont proposé des exercices, relu le polycopié, corrigé des fautes et aidé à mieux calibrer les exercices.
+
+  Merci également à tous ceux qui enverront des exercices, corrections ou retours pour les prochaines versions.
+
+  #text(fill: blue.darken(40%), weight: "bold", font: "Playfair Display")[Licence] \
+  Avant la MP2I © 2023 by cr-dev.io is licensed under CC BY-NC 4.0.
+]
 ]
